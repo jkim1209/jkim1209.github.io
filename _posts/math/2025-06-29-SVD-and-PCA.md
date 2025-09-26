@@ -2,7 +2,7 @@
 layout: post
 title: "SVD와 PCA"
 date: 2025-09-24
-categories: [Statistics, ML]
+categories: [Math, Statistics]
 tags: [singular-value-decomposition, principal-component-analysis, orthogonal-matrix, gram-schmidt, pseudo-inverse, truncated-svd, covariance-matrix]
 math: true
 ---
