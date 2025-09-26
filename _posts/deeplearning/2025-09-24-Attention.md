@@ -188,8 +188,8 @@ Attention은 디코더의 모든 시점마다 수행됩니다. 즉, 각 단어�
 
 <div align="center">
   <img src="/assets/images/deeplearning/attention_encoder_decoder.gif" width="80%" alt="Attention Encoder Decoder">  
-  
-  (출처: [Lena Voita Blog - Sequence to Sequence (seq2seq) and Attention](https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html) )
+  <br>
+  (출처: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">Lena Voita Blog - Sequence to Sequence (seq2seq) and Attention</a>)
 </div>
 
 ---

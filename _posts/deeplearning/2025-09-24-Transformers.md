@@ -8,7 +8,7 @@ math: true
 mermaid: true
 ---
 
-이 글은 이전 파트 [Seq2Seq와 Attention 메커니즘](https://github.com/jkim1209/TIL/blob/main/Deep%20Learning/Attention.md)에서 이어집니다.
+이 글은 이전 파트 [Seq2Seq와 Attention 메커니즘](https://jkim1209.github.io/posts/Attention/)에서 이어집니다.
 
 ## 8. 새로운 질문: RNN 없이 Attention만으로 문장을 이해할 수 없을까?
 
@@ -116,9 +116,9 @@ flowchart TB
 전체 구조는 다음과 같습니다.
 
 <div align="center">
-  <img src="/assets/images/deeplearning/transformer_architecture.webp" width="1000" alt="transformer_architecture">
-
-  (출처: [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/))
+  <img src="/assets/images/deeplearning/transformer_architecture.webp" width="1000" alt="transformer_architecture">  
+  <br>
+  (출처: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention? Attention!</a>)
 </div>
 
 아래에서는 각 요소에 대해서 좀 더 자세히 살펴봅니다.
@@ -184,9 +184,9 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{\text{model}}})$$
 ### 11.3 인코더 블록의 구조 (Encoder Block)
 
 <div align="center">
-  <img src="/assets/images/deeplearning/transformer_encoder.png" width="800" alt="transformer_encoder">
-
-  (출처: [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/))
+  <img src="/assets/images/deeplearning/transformer_encoder.png" width="800" alt="transformer_encoder">  
+  <br>
+  (출처: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention? Attention!</a>)
 </div>
 
 인코더 블록은 두 개의 주요 서브층(sub-layer)으로 구성되며, 각 서브층에는 특별한 장치가 추가되어 있습니다.
@@ -219,9 +219,9 @@ $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{\text{model}}})$$
 ### 11.4 디코더 블록의 구조 (Decoder Block)
 
 <div align="center">
-  <img src="/assets/images/deeplearning/transformer_decoder.png" width="800" alt="transformer_decoder">
-
-  (출처: [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/))
+  <img src="/assets/images/deeplearning/transformer_decoder.png" width="800" alt="transformer_decoder">  
+  <br>
+  (출처: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention? Attention!</a>)
 </div>
 
 디코더 블록은 인코더 블록과 유사하지만, 번역과 같은 생성(generation) 작업을 위해 한 개의 서브층이 추가되어 총 3개의 서브층으로 구성됩니다.
