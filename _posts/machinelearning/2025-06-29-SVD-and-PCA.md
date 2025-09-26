@@ -2,8 +2,8 @@
 layout: post
 title: "SVD와 PCA"
 date: 2025-09-24
-categories: [Math, Statistics]
-tags: [singular-value-decomposition, principal-component-analysis, orthogonal-matrix, gram-schmidt, pseudo-inverse, truncated-svd, covariance-matrix]
+categories: [Machine Learning, Statistics]
+tags: [singular value decomposition, principal component analysis, orthogonal matrix, gram schmidt, pseudo inverse, truncated svd, covariance matrix]
 math: true
 ---
 
@@ -132,7 +132,7 @@ $2.$ $A^T=A^{-1}$ 으로부터 $AA^T=I$ 이기도 한데, 이는 정사각행렬
 
 (i) $\vec{u_{pr}}+\vec{u_c}=\vec{u} \qquad$(ii) $\vec{u_{pr}} \parallel \vec{v} \qquad$ (iii) $\vec{u_c} \perp \vec{v}$
 
-<center><img src='/assets/images/math/SVD_orthogonal_projection_r2.jpg' width = 600 alt="SVD_orthogonal_projection_r2"></center>
+<center><img src='/assets/images/machinelearning/SVD_orthogonal_projection_r2.jpg' width = 600 alt="SVD_orthogonal_projection_r2"></center>
 
 ##### [2] $\mathbb{R}^3$에서의 직교사영
 
@@ -146,7 +146,7 @@ $2.$ $A^T=A^{-1}$ 으로부터 $AA^T=I$ 이기도 한데, 이는 정사각행렬
 
 ④ $\vec{u_c}=\vec{u}-\vec{u_{pr}}=\vec{u}-\dfrac{\vec{u} \cdot \vec{v}_1}{\vec{v}_1 \cdot \vec{v}_1}\vec{v}_1 - \dfrac{\vec{u} \cdot \vec{v}_2}{\vec{v}_2 \cdot \vec{v}_2}\vec{v}_2 \qquad$ : $Span(\vec{v}_1,\vec{v}_2)$ 에 직교하는 $\vec{u}$ 의 벡터성분
 
-<center><img src='/assets/images/math/SVD_orthogonal_projection_r3.jpg' width = 600 alt="SVD_orthogonal_projection_r3"></center>
+<center><img src='/assets/images/machinelearning/SVD_orthogonal_projection_r3.jpg' width = 600 alt="SVD_orthogonal_projection_r3"></center>
 
 ##### [3] $\mathbb{R}^n$에서의 직교사영
 
@@ -192,7 +192,7 @@ $$
 \quad \vec{u}_2=\vec{v}_{2c}=\vec{v}_2-\vec{v}_{2pr}=\vec{v}_2-\dfrac{\vec{v}_2 \cdot \vec{u}_1}{\vec{u}_1 \cdot \vec{u}_1}\vec{u}_1
 $$
 >
-> <center><img src='/assets/images/math/SVD_gram_schmidt_r2.jpg' width = 600 alt="SVD_gram_schmidt_r2"></center>
+> <center><img src='/assets/images/machinelearning/SVD_gram_schmidt_r2.jpg' width = 600 alt="SVD_gram_schmidt_r2"></center>
 >
 >
 > $\\quad$ 이제 $\vec{u}_2$를 만들었으니 $\vec{v}_2$는 사용하지 않는다.
@@ -205,7 +205,7 @@ $$
 \quad \vec{u}_2=\vec{v}_{3c}=\vec{v}_3-\vec{v}_{3pr}=\vec{v}_3-\dfrac{\vec{v}_3 \cdot \vec{u}_1}{\vec{u}_1 \cdot \vec{u}_1}\vec{u}_1-\dfrac{\vec{v}_3 \cdot \vec{u}_2}{\vec{u}_2 \cdot \vec{u}_2}\vec{u}_2
 $$
 >
-> <center><img src='/assets/images/math/SVD_gram_schmidt_r3.jpg' width = 600 alt="SVD_gram_schmidt_r3"></center>
+> <center><img src='/assets/images/machinelearning/SVD_gram_schmidt_r3.jpg' width = 600 alt="SVD_gram_schmidt_r3"></center>
 >
 >
 > $\\quad$ 이제 $\vec{u}_3$를 만들었으니 $\vec{v}_3$는 사용하지 않는다.
@@ -231,7 +231,7 @@ $$
 , D=\begin{bmatrix} \sigma_1 & 0 & \cdots & 0 \\ 0 & \sigma_2 &\cdots & 0 \\ \cdots & \cdots & \cdots &\cdots \\ 0 & 0 & \cdots & \sigma_r\end{bmatrix}
 $$  
 
-> <center><img src='/assets/images/math/SVD_SVD.webp' width = 900 alt="SVD_SVD"></center>
+> <center><img src='/assets/images/machinelearning/SVD_SVD.webp' width = 900 alt="SVD_SVD"></center>
 >
 ><div align="center">
 >  <a href="https://towardsdatascience.com/singular-value-decomposition-svd-demystified-57fc44b802a0/">Singular Value Decomposition (SVD), Demystified</a>
@@ -319,17 +319,17 @@ $$
 > **Step 1.** 2개의 feature X, Y 존재
 >
 >
-> <img src='/assets/images/math/PCA_pca1.webp' width="600" alt="PCA_pca1" style="display: block; margin: 0;">
+> <img src='/assets/images/machinelearning/PCA_pca1.webp' width="600" alt="PCA_pca1" style="display: block; margin: 0;">
 >
 > **Step 2.** 분산이 가장 큰 좌표축과 해당 좌표축과 서로 직교하는 새로운 축을 찾는다 → V1 (분산이 가장 큰 좌표축), V2 
 >
 >
-> <img src='/assets/images/math/PCA_pca2.webp' width="600" alt="PCA_pca2" style="display: block; margin: 0;">
+> <img src='/assets/images/machinelearning/PCA_pca2.webp' width="600" alt="PCA_pca2" style="display: block; margin: 0;">
 >
 > **Step 3.** V1, V2를 새로운 좌표축 PC1, PC2로 만들고, 데이터를 가장 잘 설명할 수 있는 좌표축 PC1만 남겨둔다.
 >
 >
-> <img src='/assets/images/math/PCA_pca3.webp' width="600" alt="PCA_pca3" style="display: block; margin: 0;">
+> <img src='/assets/images/machinelearning/PCA_pca3.webp' width="600" alt="PCA_pca3" style="display: block; margin: 0;">
 >
 > [Principal Component Analysis Guide & Example](https://statisticsbyjim.com/basics/principal-component-analysis/)
 

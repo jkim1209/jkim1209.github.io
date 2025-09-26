@@ -3,7 +3,7 @@ layout: post
 title: "How Biodiversity News Moves Stock Markets: Insights from My Research"
 date: 2024-06-01
 categories: [Research, Finance, Paper]
-tags: [biodiversity, finance, BERT, topic-modeling, stock-returns, ESG]
+tags: [biodiversity, finance, BERT, topic modeling, stock returns, ESG]
 ---
 
 # Biodiversity Concern and Firm Performance: A News-Based Analysis

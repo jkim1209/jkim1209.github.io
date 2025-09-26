@@ -3,7 +3,7 @@ layout: post
 title: "침입 탐지 논문에서 배우는 정형 데이터 모델링: CTR 예측에의 적용 가능성"
 date: 2025-09-26
 categories: [Research, Review, Paper, ML]
-tags: [deep-learning, machine-learning, intrusion-detection, tabular-data, SMOTE, CTR, FT-transformer]
+tags: [deep learning, machine learning, intrusion detection, tabular data, SMOTE, CTR, FT transformer]
 ---
 
 # 정형 데이터: 머신러닝 vs 딥러닝
