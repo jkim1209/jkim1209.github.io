@@ -1,8 +1,8 @@
 ---
 # Tab 'About'
-# 
-# layout: about
-# icon: fas fa-info-circle
+
+layout: about
+icon: fas fa-info-circle
 order: 4
 ---
 
