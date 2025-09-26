@@ -17,9 +17,11 @@ While climate finance has received extensive academic attention, the economic im
 ## Methodology
 
 ### Data Collection
+
 I collected 60,213 biodiversity-related articles from Dow Jones Factiva spanning January 2003 to December 2022. The data shows a clear upward trend in biodiversity coverage, reflecting growing awareness of environmental issues.
 
 ### Sentiment Analysis with BERT
+
 Using the Bidirectional Encoder Representations from Transformers (BERT) model, I classified each sentence on a scale from 1 (most negative) to 5 (most positive). Examples include:
 
 **Negative sentiment (score = 1)**: Articles discussing legal action against governmental oversight failures in environmental protection, highlighting consequences like major oil spills.
@@ -29,13 +31,16 @@ Using the Bidirectional Encoder Representations from Transformers (BERT) model, 
 From this analysis, I constructed the **Biodiversity Sentiment Index (BSI)** by subtracting the daily count of negative articles from positive articles.
 
 ### Physical vs. Transition Risk Analysis
+
 Using Latent Dirichlet Allocation (LDA), I identified five distinct topics and categorized them into:
 
 **Physical Risks (2 topics)**:
+
 - Endangered Species
 - Natural Resource Management
 
 **Transition Risks (3 topics)**:
+
 - Conservation Policy
 - Environmental News  
 - Regulations and Permits
@@ -43,13 +48,17 @@ Using Latent Dirichlet Allocation (LDA), I identified five distinct topics and c
 ## Key Findings
 
 ### 1. Short-term Impact with Long-term Attenuation
+
 Higher biodiversity sentiment significantly increases daily stock returns (coefficient ≈ 0.44), but this effect disappears at the monthly horizon. This suggests markets react to sentiment rather than fundamental changes.
 
 ### 2. Transition Risks Dominate Physical Risks
+
 The empirical results strongly support my hypothesis that transition risks have greater impact on stock returns than physical risks.
 
 ### 3. Heterogeneous Channel Effects
+
 Within transition risks, I find interesting patterns:
+
 - Environmental news attention loads positively on returns, consistent with increased public awareness raising cost of capital
 - Regulations and permits attention loads negatively, reflecting anticipated operating constraints
 

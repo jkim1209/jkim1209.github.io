@@ -146,6 +146,9 @@ pwa:
 
 paginate: 10
 
+math: true
+mermaid: true
+
 # The base URL of your site
 baseurl: ""
 
