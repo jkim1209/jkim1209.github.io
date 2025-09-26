@@ -14,12 +14,13 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 김장원의 블로그 # the main title
+title: Random Notes # the main title
 
-tagline: 심심할때 기록하는 공간 # it will display as the subtitle
+tagline: Thoughts, ideas, and everything in between # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  지식, 코드, 논문리뷰, 일상, 생각 등 잡다한 것을 자유롭게 기록하는 개인 아카이브입니다.
+  Personal blog sharing insights on machine learning, deep learning, data science, and research.
+  Random notes, thoughts, and discoveries from a curious mind.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

@@ -8,8 +8,7 @@ order: 4
 
 ## Jangwon Kim
 
-### From Social Science to Data Science — Bridging the gap
-
+- 📍 Based in Seoul, Korea
 - 🎓 M.A. in Statistics, **Columbia University**.
 - 📚 Background in **Finance, Statistics, and Economics**.
 - 📊 Passionate about **data analysis, teaching, and turning numbers into insights**.
