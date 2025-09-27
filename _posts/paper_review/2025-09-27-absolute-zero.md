@@ -42,7 +42,7 @@ math: true
 
 **강화학습 (RLHF/RLVR)**
 
-- RLH(Reinforcement Learning from Human Feedback): 인간 피드백을 보상으로 사용 (ChatGPT, Claude)
+- RLHF(Reinforcement Learning from Human Feedback): 인간 피드백을 보상으로 사용 (ChatGPT, Claude)
 - RLVR(Reinforcement Learning with Verifiable Rewards): 검증 가능한 정답을 보상으로 사용 (DeepSeek R1, OpenAI o1)
 - **여전히 인간이 정의한 문제나 선호도에 의존**
 
