@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: Random Notes # the main title
 
-tagline: Thoughts, ideas, and everything in between # it will display as the subtitle
+tagline: Let the universe work its magic. # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Personal blog sharing insights on machine learning, deep learning, data science, and research.
