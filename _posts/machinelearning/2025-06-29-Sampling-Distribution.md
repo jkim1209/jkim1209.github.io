@@ -3,7 +3,7 @@ layout: post
 title: "Sampling Distribution"
 date: 2025-06-29
 categories: [Machine Learning, Statistics]
-tags: []
+tags: [sampling distribution, central limit theorem, sample statistics, t-distribution, statistical inference] 
 math: true
 ---
 
