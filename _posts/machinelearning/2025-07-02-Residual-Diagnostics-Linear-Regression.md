@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Residual Diagnostics in Linear Regression"
-date: 2025-09-27
+date: 2025-07-02
 categories: [Machine Learning, Statistics, Regression Analysis]
 tags: [linear regression, residual analysis, diagnostics, outlier detection, studentized residuals, hat matrix, leverage, model validation, statistical assumptions, homoscedasticity, cross validation, influence measures, regression diagnostics, data analysis, python, statsmodels]
 math: true
