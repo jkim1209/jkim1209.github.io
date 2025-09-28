@@ -3,24 +3,7 @@ layout: post
 title: "Residual Diagnostics in Linear Regression"
 date: 2025-09-27
 categories: [Machine Learning, Statistics, Regression Analysis]
-tags: [
-  linear regression,
-  residual analysis,
-  diagnostics,
-  outlier detection,
-  studentized residuals,
-  hat matrix,
-  leverage,
-  model validation,
-  statistical assumptions,
-  homoscedasticity,
-  cross validation,
-  influence measures,
-  regression diagnostics,
-  data analysis,
-  python,
-  statsmodels
-]
+tags: [linear regression, residual analysis, diagnostics, outlier detection, studentized residuals, hat matrix, leverage, model validation, statistical assumptions, homoscedasticity, cross validation, influence measures, regression diagnostics, data analysis, python, statsmodels]
 math: true
 ---
 
@@ -348,7 +331,7 @@ print('Outlier Info: \n', data_internal.iloc[outlier_indices_internal])
 
 <img src='/assets/images/machinelearning/Studentized_Deleted_Residual_Plot.png' width = 600 alt="Studentized_Deleted_Residual_Plot">
 
-```markdown
+```txt
 Outlier Info: 
        x     y
 30  5.5  30.0
