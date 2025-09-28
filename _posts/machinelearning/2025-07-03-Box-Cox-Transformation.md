@@ -71,7 +71,7 @@ plt.title("Box-Cox Transformed Data")
 plt.show()
 ```
 
-```markdown
+```txt
 Optimal lambda: 0.3251
 ```
 
@@ -118,7 +118,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-```markdown
+```txt
 Estimated λ (lambda) values for each variable: [ 0.24399399  0.22962182 -0.18959628]
 ```
 
