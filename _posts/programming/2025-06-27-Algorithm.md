@@ -44,7 +44,7 @@ def fib(n):
 ```
 
 <div align="center">
-  <img src='/assets/images/programming/Data Structure and Algorithm_recursive_function.png' width="700">
+  <img src='/assets/images/programming/Data Structure and Algorithm_recursive_function.png' width="700" alt="Data Structure and Algorithm_recursive_function">
   <br>
   (출처: <a href="https://www.eecs.yorku.ca/course_archive/2016-17/F/2030/labs/lab7/lab7.html">Emulating recursion using a stack</a>)
 </div>
@@ -73,7 +73,7 @@ factorial(5)
 
 **예시)**  
 
-<img src="/assets/images/programming/Data Structure and Algorithm_bfs.jpg" width="600" style="display: block; margin: 0;">
+<img src="/assets/images/programming/Data Structure and Algorithm_bfs.jpg" width="600" alt="Data Structure and Algorithm_bfs" style="display: block; margin: 0;">
 
 > [1] 1을 큐에추가한 뒤 추출, 그 자식 노드들을 append하면 순서대로 8, 5, 2 가 들어감  
 > [2] 1 다음으로 들어간 8을 추출, 그 자식 노드들을 append하면 순서대로 6, 4, 3 이 들어감  
@@ -149,7 +149,7 @@ bfs(graph, visited)
 
 **예시)**  
 
-<img src="/assets/images/programming/Data Structure and Algorithm_dfs.jpg" width="600" style="display: block; margin: 0;">
+<img src="/assets/images/programming/Data Structure and Algorithm_dfs.jpg" width="600" alt="Data Structure and Algorithm_dfs" style="display: block; margin: 0;">
 
 > [1] 재귀함수를 통해 자식노드가 없을 때까지 계속해서 왼쪽부터 수직아래로 내려가며 자료를 탐색  
 > [2] 탐색이 종료되면 마지막으로 탐색된 값부터 하나씩 append : 9 → 2 → 5 → 3 → 4 → 7 → 10 → 6 → 8 → 1  
@@ -210,7 +210,7 @@ dfs(graph, 1, visited)
 * 단점: 검색 대상 리스트가 길어지면 비효율적 - (최대) 시간 복잡도: $O(n)$  
 
 <div align="center">
-  <img src="/assets/images/programming/Data Structure and Algorithm_linear_search.png" width="600" style="display: block; margin: 0;">
+  <img src="/assets/images/programming/Data Structure and Algorithm_linear_search.png" width="600" alt="Data Structure and Algorithm_linear_search" style="display: block; margin: 0;">
   <br>
   <a href="https://www.geeksforgeeks.org/dsa/what-is-linear-search/">What is Linear Search?</a>
 </div>
@@ -249,7 +249,7 @@ print(idx2)
 * 단점: 미리 오름차순 정렬되어 있어야 사용 가능  
 
 <div align="center">
-  <img src="/assets/images/programming/Data Structure and Algorithm_binary_search.png" width="600" style="display: block; margin: 0;">
+  <img src="/assets/images/programming/Data Structure and Algorithm_binary_search.png" width="600" alt="Data Structure and Algorithm_binary_search" style="display: block; margin: 0;">
   <br>
   <a href="https://dolly-desir.medium.com/algorithms-binary-search-2656c7eb5049">Algorithms: Binary Search</a>
 </div>
@@ -318,7 +318,7 @@ bubble_sort(item_list)
 * 상용 라이브러리에 많이 쓰임  
 * 시간 복잡도: $O(nlog(n))$  
 
-<img src="/assets/images/programming/Data Structure and Algorithm_merge_sort.jpg" width="1200" style="display: block; margin: 0;">
+<img src="/assets/images/programming/Data Structure and Algorithm_merge_sort.jpg" width="1200" alt="Data Structure and Algorithm_merge_sort" style="display: block; margin: 0;">
 
 > 따라서 병합 정렬을 구현하려면 **분할하는 함수**와 **병합하는 함수** 두 개가 필요함  
 
@@ -439,20 +439,20 @@ sorted_list:  [1, 8, 12, 25, 33, 42, 51]
 * 평균 시간 복잡도: $O(nlog(n))$
 * 최악 시간 복잡도: $O(n^2)$
 
-<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort1.jpg" width="600" style="display: block; margin: 0;">  
+<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort1.jpg" width="600" alt="Data Structure and Algorithm_quick_sort1" style="display: block; margin: 0;">  
 
 > [1] pivot을 0번째 값으로 지정했다고 하자.  
 > [2] 이 pivot을 기준으로 list를 탐색하며 pivot보다 [작은 값들], [같은 값들], [큰 값들]로 모아서 나눠준다.  
 
-<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort2.jpg" width="600" style="display: block; margin: 0;">  
+<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort2.jpg" width="600" alt="Data Structure and Algorithm_quick_sort2" style="display: block; margin: 0;">  
 
-<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort3.jpg" width="600" style="display: block; margin: 0;">  
+<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort3.jpg" width="600" alt="Data Structure and Algorithm_quick_sort3" style="display: block; margin: 0;">  
 
 > [3] 나눠진 [작은 값들], [큰 값들]에 대해서 다시 quick_sort를 해준다.  
 > $\\quad$ _- 재귀함수 이용: 따라서 이 때에도 pivot은 계속 위에서 정한 pivot과 같이 각 값들의 0번째 값_  
 > [4] 이를 나눠진 값들의 길이가 모두 1 이하일 때까지 반복한다.  
 
-<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort4.jpg" width="600" style="display: block; margin: 0;">  
+<img src="/assets/images/programming/Data Structure and Algorithm_quick_sort4.jpg" width="600" alt="Data Structure and Algorithm_quick_sort4" style="display: block; margin: 0;">  
 
 > [5] 최종적으로 나눠진 값들을 그대로 이어 붙여주면 된다.
 
