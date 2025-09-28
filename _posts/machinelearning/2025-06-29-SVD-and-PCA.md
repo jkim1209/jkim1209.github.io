@@ -182,7 +182,7 @@ $$
 $$
 
 $$
-\vec{w}_1=\dfrac{\vec{u}}{\\|u_1\\|}, \\quad \vec{w}_2=\dfrac{\vec{u}}{\\|u_2\\|}, \\quad \cdots, \\quad \vec{w}_k=\dfrac{\vec{u}}{\\|u_k\\|}
+\vec{w}_1=\dfrac{\vec{u}}{\\|u_1\\|}, \quad \vec{w}_2=\dfrac{\vec{u}}{\\|u_2\\|}, \quad \cdots, \quad \vec{w}_k=\dfrac{\vec{u}}{\\|u_k\\|}
 $$
 
 > ① $\vec{u}_1=\vec{v}_1\qquad$이제 $\vec{u}_1$를 만들었으니 $\vec{v}_1$는 사용하지 않는다.  
