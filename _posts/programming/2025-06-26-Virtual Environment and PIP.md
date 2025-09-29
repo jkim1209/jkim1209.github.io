@@ -300,6 +300,20 @@ pip install -r requirements.txt
 
 ---
 
+## 기타 파이썬 환경 관리 도구 및 비교
+
+| 구분        | Conda                                                                         | venv                                               | uv                                                                                     |
+| ----------- | ----------------------------------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| 기본 개념   | 패키지 + 환경 관리 시스템. Python뿐 아니라 다른 라이브러리/바이너리 설치 가능 | Python 표준 라이브러리 기능으로 Python 환경만 격리 | 초고속 패키지/환경 관리 도구. Rust로 구현되어 pip/venv 대비 매우 빠른 설치와 격리 지원 |
+| 설치 범위   | Python, 라이브러리, C 라이브러리 등 포함 가능                                 | Python 패키지(라이브러리)만 설치 가능              | Python 패키지 중심. PyPI 패키지를 빠르게 설치, lockfile 기반 환경 재현성 보장          |
+| 사용 용이성 | 다양한 OS에서 쉽고 빠른 설치, 환경 관리 용이                                  | Python만 설치되어 있으면 사용 가능, 가벼움         | 설치 속도 매우 빠름, pip/venv 호환. 추가 툴 의존성 적음                                |
+| 패키지 설치 | `conda install 패키지` 또는 `pip install 패키지`                              | `pip install 패키지`                               | `uv add 패키지` 또는 `uv pip install 패키지`                                           |
+| 환경 생성   | `conda create -n env_name python=3.11`                                        | `python -m venv env_name`                          | `uv venv env_name`                                                                     |
+| 활성화      | `conda activate env_name`                                                     | `source env_name/bin/activate` (Mac/Linux)         | `source env_name/bin/activate` (venv 구조와 동일)                                      |
+| 특징        | 데이터 과학, ML, AI 프로젝트에 적합                                           | 단순 Python 프로젝트, 경량화 환경에 적합           | 초고속 설치, 재현성 높은 환경 관리, 대규모 프로젝트/CI에 적합                          |
+
+---
+
 ## Reference
 
 > Do it! LLM을 활용한 AI 에이전트 개발 입문
