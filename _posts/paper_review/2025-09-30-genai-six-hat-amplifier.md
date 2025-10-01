@@ -2,7 +2,7 @@
 layout: post
 title: "AI는 격차를 줄이는가 증폭시키는가: 인지 능력 발달에 대한 실험"
 date: 2025-09-30
-categories: [Research, Review, AI, Education]
+categories: [Research, Review]
 tags: [GenAI, cognitive presence, creativity, educational technology, epistemic network analysis, six thinking hats, learning analytics, cognitive amplifier, educational inequality]
 math: true
 ---

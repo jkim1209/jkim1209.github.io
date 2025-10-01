@@ -2,7 +2,7 @@
 layout: post
 title: "침입 탐지 논문에서 배우는 정형 데이터 모델링: CTR 예측에의 적용 가능성"
 date: 2025-09-26
-categories: [Research, Review, Paper, ML]
+categories: [Research, Review]
 tags: [deep learning, machine learning, intrusion detection, tabular data, SMOTE, CTR, FT transformer]
 ---
 
@@ -12,7 +12,7 @@ Ali et al. "Deep Learning vs. Machine Learning for Intrusion Detection in Comput
 
 ## 연구 결과와 의외의 발견
 
-연구진들은 CIC-IDS2017 데이터셋을 사용해서 네트워크 침입 탐지에서 전통적인 머신러닝과 딥러닝 접근법을 체계적으로 비교했다. 
+연구진들은 CIC-IDS2017 데이터셋을 사용해서 네트워크 침입 탐지에서 전통적인 머신러닝과 딥러닝 접근법을 체계적으로 비교했다.  
 
 **전통적 ML 결과:**
 

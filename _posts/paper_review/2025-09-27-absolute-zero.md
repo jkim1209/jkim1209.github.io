@@ -2,7 +2,7 @@
 layout: post
 title: "Absolute Zero: 데이터 없이도 인공지능이 스스로 문제를 만들고 푸는 시대"
 date: 2025-09-27
-categories: [Research, Review, Paper, AI]
+categories: [Research, Review]
 tags: [deep learning, reinforcement learning, self-play, zero data, absolute zero, AZR, synthetic data]
 math: true
 ---
