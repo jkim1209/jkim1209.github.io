@@ -2,7 +2,7 @@
 layout: post
 title: "Seq2Seq와 Attention 메커니즘"
 date: 2025-09-24
-categories: [Deep-Learning, NLP, Architecture]
+categories: [Deep Learning, NLP, Architecture]
 tags: [attention, transformer, seq2seq, self-attention, neural-networks]
 math: true
 mermaid: true
