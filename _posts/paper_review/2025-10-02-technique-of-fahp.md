@@ -1,7 +1,7 @@
 ---
 layout: post 
 title: "'최고'의 커피는 무엇일까? AI가 인간의 모호한 취향을 이해하는 법" 
-date: 2025-10-01 
+date: 2025-10-02
 categories: [Research, Review]
 tags: [expert system, fuzzy logic, AHP, MCDM, q-rung orthopair fuzzy sets, decision making] 
 math: true
