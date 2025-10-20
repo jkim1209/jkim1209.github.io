@@ -6,6 +6,8 @@ categories: [Research, Finance, Paper]
 tags: [biodiversity, finance, BERT, topic modeling, stock returns, ESG]
 ---
 
+> *This paper is currently available as an SSRN Working Paper:* [View on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5625611)
+
 ## Biodiversity Concern and Firm Performance: A News-Based Analysis
 
 I'm excited to share one of my research that examines how biodiversity-related news affects U.S. firm stock returns. This study bridges the gap between environmental science and finance by providing systematic evidence of how biodiversity concerns influence financial markets.
@@ -91,8 +93,6 @@ The main limitation is the mismatch between time-series explanatory variables an
 The results are robust to standard asset-pricing controls (market, size, value, profitability, investment, momentum factors) and various specification checks including lagged effects, event-time dynamics, and endogeneity considerations.
 
 ---
-
-**Download Full Paper**: [PDF Link](/assets/papers/biodiversity_concern_and_firm_performance.pdf)
 
 This research demonstrates that biodiversity is not just an environmental issue but a material financial factor that markets actively price. The dominance of transition risks over physical risks has important implications for how we think about biodiversity in investment and risk management contexts.
 
