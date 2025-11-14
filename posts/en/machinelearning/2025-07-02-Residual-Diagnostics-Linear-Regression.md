@@ -268,11 +268,13 @@ Some recommendations follow:
 | **Studentized Deleted Residual** <br> (Externally Studentized Residual)                | $t_{(i)}$ | $\dfrac{e_i}{\hat{\sigma_(i)} \sqrt{1 - h_{ii}}}$ | Residual scaled by RMSE computed **excluding observation $i$**. Most reliable for outlier detection.   |
 
 **Notes**
+
 * $\hat{\sigma}$: The standard deviation of residuals computed using all observations (i.e., the RMSE).  
 * $\hat{\sigma}_{(i)}$: The standard deviation of residuals computed by excluding observation $i$ from the model. This is used in externally studentized residuals.  
 * $h_{ii}$: The leverage of observation $i$ — it represents how much influence observation $i$ has on its own predicted value (i.e., the diagonal element of the hat matrix $\mathbf{H} = \mathbf{X} (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T$).  
 
 **Practical Tips**
+
 * In real-world applications, the Studentized Deleted Residual (also called Externally Studentized Residual) is most commonly used for outlier detection, because it accounts for the influence of the observation being tested.  
 * The Deleted Residual (i.e., the prediction error when leaving out a point) is important for assessing predictive performance, especially in cross-validation contexts.  
 * The Semistudentized Residual is less commonly used in practice, but it serves as a basic form of normalization (dividing residuals by the global RMSE).  
@@ -379,7 +381,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   * The **leverage** $h_{ii}$  
   * → This is what **studentized deleted residuals** are designed to detect.  
 
-### **Summary**
+### **Conclusion**
 
 * **$h_{ii}$ (leverage)** measures how much the predicted value $\hat{Y}_i$ is influenced by the actual observation $Y_i$.  
 * High leverage points are far from the center of the $x$-space and can strongly affect the regression fit.  
