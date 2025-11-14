@@ -42,7 +42,7 @@ While traditional fuzzy theory focused on 'to what degree does it belong' (membe
 The biggest innovation lies in the relationship between these two values. q-ROFS grants much greater freedom to membership and non-membership degrees while satisfying the following condition:
 
 $$
-0 \ge \tilde{E}_{S}(r)^{q} + \dot{G}_{S}(r)^{q} \le 1, \quad (q \ge 1)
+0 \le \tilde{E}_{S}(r)^{q} + \dot{G}_{S}(r)^{q} \le 1, \quad (q \ge 1)
 $$
 
 Here, as parameter $q$ increases, the range of values membership and non-membership degrees can take widens. This enables mathematical expression even of the expert's hesitation or uncertainty when "it's ambiguous to say it's good, but can't say it's bad either."
