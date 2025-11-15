@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_blog=self.webpackChunkreact_blog||[]).push([[7634],{87634:(e,c,a)=>{a.d(c,{createInfoServices:()=>r.v});var r=a(24541);a(88404)}}]);
