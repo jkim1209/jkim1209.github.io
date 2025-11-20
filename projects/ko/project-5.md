@@ -1,70 +1,70 @@
-# Computer Vision Project: 문서 이미지 분류
+---
+tags: Python, PyTorch, NLP, LLM, QLoRA, Dialogue Summarization
+date: 2025
+icon: 💬
+---
 
-**다양한 산업 도메인의 문서 이미지를 포함한 여러 이미지를 정확히 분류하는 모델을 개발합니다. ViT-SigLIP 백본과 클래스별 증강, Focal Loss, 고해상도 사전학습 모델을 결합하여 Macro F1 0.9692를 기록하며 리더보드 1위 성과를 달성했습니다.**
+# NLP/LLM Project: 일상 대화 요약
 
 ## 프로젝트 개요
 
-다양한 산업 도메인의 문서 이미지를 포함한 여러 이미지를 17개 클래스로 분류하는 모델을 개발하는 프로젝트입니다.
+일상 대화의 핵심을 정확하고 간결하게 요약하는 한국어 대화 요약 모델 개발을 목표로 한 프로젝트입니다.
 
-GitHub Repository: [https://github.com/jkim1209/doc_img_classification](https://github.com/jkim1209/doc_img_classification)
+GitHub Repository: [https://github.com/jkim1209/NLI-Dialogue-Summarization](https://github.com/jkim1209/NLI-Dialogue-Summarization)
 
-Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/10o12igXX3xXg1zpI-M4KdHMrxI4OToEL/)
+Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/1n3ZpdBC2U84vmS9k6mGyuqrokve7uZQvnuWrouwvFv4)
 
 ## 나의 역할과 기여도
 
-팀장으로서 프로젝트 전반을 이끌며, 데이터 분석부터 모델링, 성능 최적화까지 핵심적인 역할을 수행했습니다.
+팀장으로서 프로젝트를 총괄하며, LLM(거대 언어 모델) 모델링 파트를 주도적으로 담당했습니다.
 
-- 데이터 분석 및 전처리: 클래스 불균형 문제를 파악하고, 문서/신분증/차량 등 종류에 따라 최적화된 데이터 증강 파이프라인을 설계 및 적용했습니다.
-- 모델 구현 및 실험: ViT를 포함한 다양한 사전학습 모델을 실험하며 데이터 특성에 가장 적합한 아키텍처를 탐색했습니다.
+- 데이터 전략 수립: Paraphrase, Speaker Swap 등 데이터 증강 기법을 기획하고 적용하여 모델의 일반화 성능을 높이는 데 기여했습니다.
+- LLM 모델링 및 파인튜닝: Decoder-only 아키텍처 (SOLAR, Qwen3 등) 을 선정하고, QLoRA 기법을 활용해 제한된 리소스 환경에서 효율적인 미세조정을 진행했습니다.
+- 프롬프트 엔지니어링: 모델이 최적의 요약문을 생성할 수 있도록 다양한 프롬프트 구조를 설계하고 테스트했습니다.
+- 성능 분석 및 개선: T5 모델과 LLM의 ROUGE 점수 및 생성 결과물의 질적 차이를 비교 분석하여 최종 모델을 선정하였습니다.
 
 ## 주요 기술 및 구현 내용
 
 ### 사용 기술
 
-- Framework: Python, PyTorch, Torchvision, timm, Albumentations, OpenCV
-- Models: ViT, ConvNeXt, EfficientNet 등
+- Framework: Python, PyTorch, Transformers, PEFT, TRL, BitsAndBytes
+- Models: T5, KoBART, SOLAR 10.7B, Qwen3 0.6B
 
 ### 핵심 구현
 
-- 클래스 특성을 고려한 맞춤형 데이터 증강 파이프라인
-- Focal Loss를 이용한 클래스 불균형 문제 해결
-- 고해상도 이미지(512+)에 사전학습된 모델 도입
-- 2단계 추론을 도입하여 1단계에서 불확실하게 분류된 샘플 재추론
+- 데이터 증강 파이프라인 구축 (Paraphrase, Speaker Swap, Synthetic Generation)
+- Encoder-Decoder (T5, KoBART) 및 Decoder-only (LLM) 모델 비교 실험
+- QLoRA 기법을 이용한 4-bit 양자화 및 미세조정
 
-<div style="display: flex; gap: 1rem; align-items: flex-start;">
-  <img src="/projects/assets/images/05/01.png" alt="데이터 증강" style="flex: 1; max-width: 50%; height: auto;" />
-  <img src="/projects/assets/images/05/02.png" alt="모델 구조" style="flex: 1; max-width: 50%; height: auto;" />
-</div>
-
-![실험 결과](/projects/assets/images/05/03.png)
+![데이터 증강 파이프라인](/projects/assets/images/03/01.png)
 
 ## Troubleshooting
 
-### 문제: 고해상도 데이터에서의 성능 한계 돌파
+### 문제: LLM 파인튜닝 시 VRAM 부족 문제
 
 **문제 상황**
 
-클래스별 맞춤 데이터 증강 기법을 적용했음에도 불구하고, Test Macro F1 Score가 약 0.85에서 더 이상 오르지 않는 한계에 직면했습니다.
+기존의 Encoder-Decoder 모델과 달리 LLM 모델은 한글 학습에 더 많은 토큰 수를 필요로 하는데, 여기에 요약을 지시하는 프롬프트까지 함께 입력으로 받아 토큰 수가 급증하게 됩니다. 이로 인해 QLoRA로 파인튜닝하는 과정에서 VRAM(24GB) 부족으로 인한 OOM 에러 및 커널 중단 현상이 반복적으로 발생했습니다.
 
 **해결 과정**
 
-1. 기존에 사용하던 모델들이 저해상도(224~384px) 이미지로 사전학습되어, 글자 등 세밀한 특징이 중요한 문서 이미지의 정보를 충분히 담지 못한다고 판단했습니다.
-2. 동일 모델의 입력 해상도만 512px 이상으로 높여 학습했지만, 오히려 성능이 하락했습니다. 저해상도에 익숙한 모델이 고해상도 이미지의 노이즈에 더 민감하게 반응했기 때문입니다.
-3. 가설을 수정하여, 처음부터 512px 이상의 고해상도 이미지로 사전학습된 모델을 도입했습니다. 그 결과 Test Macro F1 Score가 0.93까지 급상승했으며, 추가적인 데이터 정제 및 Focal Loss 적용으로 최종 0.95 이상의 점수를 달성했습니다.
+1. **배치 크기 최소화**:. 배치 크기 최소화: Batch Size를 1로 설정하여 단일 학습 데이터가 차지하는 메모리 점유율을 최소화했습니다. 이 때 Gradient Accumulation 기법을 적용하여 전과 같은 배치 사이즈로 학습하는 것과 같은 효과를 얻었습니다.
+2. **입력 길이 최적화**:. 입력 길이 최적화: max_token 길이를 대부분의 대화 길이를 커버하는 4096으로 줄이고, 지나치게 긴 대화를 학습할 때는 zero-shot이 적용되게 하였습니다.
+3. 결과적으로 제한된 환경에서도 성공적으로 파인튜닝을 수행할 수 있었습니다.
 
 ## 성과 및 결과
 
 ### 정량적 성과
 
-문서 이미지 분류 대회 최종 1위 달성
+일상 대화 요약 대회 **최종 1위 달성**
 
-- Private Macro F1: 0.9692
-- Baseline Macro F1: 0.1695
+- Private ROUGE: 47.9550
+- Baseline ROUGE: 15.8301
 
 ### 경험 및 교훈
 
-- 컴퓨터 비전 프로젝트에서 가설을 세우고 검증하며 문제의 근본 원인을 찾아가는 능력을 길렀습니다.
-- 사전학습(Pre-training) 환경과 실제 과제(Task)의 데이터 특성을 일치시키는 것이 모델 성능에 얼마나 중요한지, 그리고 모델 개선만큼이나 고품질의 데이터를 확보하는 것(Data-centric AI)이 중요하다는 것을 다시 한번 체감했습니다.
-- 단순한 결과 개선보다 문제의 근본 원인을 논리적으로 추적하며, 가설 설정과 검증을 반복하는 분석적 사고력과 집요함을 기를 수 있었습니다.
+- QLoRA를 활용하여 개인용 GPU 같은 제한된 리소스 환경에서도 거대 언어 모델을 성공적으로 미세조정하는 경험을 쌓았습니다.
+- LLM 파인튜닝 과정에서 ROUGE 점수라는 정량적 지표와 실제 사람이 느끼는 요약문의 자연스러움이라는 정성적 품질 사이의 균형을 맞추는 것의 중요성을 배웠습니다.
+- 모델링 과정 전반에서 팀원들과 다양한 접근법을 논의하며, 객관적 근거를 바탕으로 최적의 방향을 결정하는 협업 의사결정 능력을 키웠습니다.
 
-![최종 결과](/projects/assets/images/05/04.png)
+![대회 결과](/projects/assets/images/03/02.png)

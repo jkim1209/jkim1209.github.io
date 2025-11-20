@@ -1,66 +1,71 @@
-# NLP/LLM Project: 일상 대화 요약
+---
+tags: Python, PyTorch, FT-Transformer, LSTM, CTR Prediction
+date: 2025
+icon: 📊
+---
 
-**일상 생활에서 발생하는 다양한 한국어 대화를 빠르게 요약해주는 모델을 개발합니다. Encoder-Decoder 아키텍처 기반의 모델들과 Decoder-only 아키텍처 기반의 LLM 모델들을 비교하며 데이터 증강과 QLoRA 파인튜닝을 통해 리더보드 1위 성과를 달성했습니다.**
+# CTR Prediction Project: Toss 광고 클릭률 예측
 
 ## 프로젝트 개요
 
-일상 대화의 핵심을 정확하고 간결하게 요약하는 한국어 대화 요약 모델 개발을 목표로 한 프로젝트입니다.
+복잡한 Tabular 데이터셋에서 사용자의 행동 패턴을 분석하여 광고 클릭 확률 예측 모델을 개발하는 프로젝트입니다.
 
-GitHub Repository: [https://github.com/jkim1209/NLI-Dialogue-Summarization](https://github.com/jkim1209/NLI-Dialogue-Summarization)
-
-Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/1n3ZpdBC2U84vmS9k6mGyuqrokve7uZQvnuWrouwvFv4)
+GitHub Repository: [https://github.com/jkim1209/toss-ctr-prediction](https://github.com/jkim1209/toss-ctr-prediction)
 
 ## 나의 역할과 기여도
 
-팀장으로서 프로젝트를 총괄하며, LLM(거대 언어 모델) 모델링 파트를 주도적으로 담당했습니다.
+데이터 분석 및 모델링 파트를 담당하여, 예측 성능을 끌어올리는 핵심 역할을 수행했습니다.
 
-- 데이터 전략 수립: Paraphrase, Speaker Swap 등 데이터 증강 기법을 기획하고 적용하여 모델의 일반화 성능을 높이는 데 기여했습니다.
-- LLM 모델링 및 파인튜닝: Decoder-only 아키텍처 (SOLAR, Qwen3 등) 을 선정하고, QLoRA 기법을 활용해 제한된 리소스 환경에서 효율적인 미세조정을 진행했습니다.
-- 프롬프트 엔지니어링: 모델이 최적의 요약문을 생성할 수 있도록 다양한 프롬프트 구조를 설계하고 테스트했습니다.
-- 성능 분석 및 개선: T5 모델과 LLM의 ROUGE 점수 및 생성 결과물의 질적 차이를 비교 분석하여 최종 모델을 선정하였습니다.
+- 데이터 분석 및 전처리: 초기 데이터 분석을 통해 수많은 피처 간의 복잡한 상관관계를 파악하고, 이를 바탕으로 프로젝트의 핵심인 전처리 및 피처 엔지니어링 전략을 수립하고 리드했습니다.
+- 모델 구현 및 실험: FT-Transformer를 메인 모델로 선정하고, LSTM을 결합하여 시퀀스 정보의 잠재적 특징을 추출하는 하이브리드 모델 구조를 구현했습니다.
 
 ## 주요 기술 및 구현 내용
 
 ### 사용 기술
 
-- Framework: Python, PyTorch, Transformers, PEFT, TRL, BitsAndBytes
-- Models: T5, KoBART, SOLAR 10.7B, Qwen3 0.6B
+- Framework: Python, PyTorch, Polars, Pandas, NumPy, Scikit-learn
+- Models: FT-Transformer, LSTM
 
 ### 핵심 구현
 
-- 데이터 증강 파이프라인 구축 (Paraphrase, Speaker Swap, Synthetic Generation)
-- Encoder-Decoder (T5, KoBART) 및 Decoder-only (LLM) 모델 비교 실험
-- QLoRA 기법을 이용한 4-bit 양자화 및 미세조정
+- Parquet 형식의 대용량 데이터 처리 및 피처 엔지니어링 파이프라인
+- FT-Transformer 기반의 분류 모델 학습 및 5-Fold 교차검증
+- LSTM을 이용한 사용자 행동 시퀀스 임베딩 생성
 
-![데이터 증강 파이프라인](/projects/assets/images/03/01.png)
+![모델 아키텍처](/projects/assets/images/04/01.png)
+
+![피처 엔지니어링](/projects/assets/images/04/02.png)
+
+![학습 과정](/projects/assets/images/04/03.png)
 
 ## Troubleshooting
 
-### 문제: LLM 파인튜닝 시 VRAM 부족 문제
+### 문제: 성능 정체 구간 돌파
 
 **문제 상황**
 
-기존의 Encoder-Decoder 모델과 달리 LLM 모델은 한글 학습에 더 많은 토큰 수를 필요로 하는데, 여기에 요약을 지시하는 프롬프트까지 함께 입력으로 받아 토큰 수가 급증하게 됩니다. 이로 인해 QLoRA로 파인튜닝하는 과정에서 VRAM(24GB) 부족으로 인한 OOM 에러 및 커널 중단 현상이 반복적으로 발생했습니다.
+모델 학습 초기, 평가지표 점수가 약 0.3450에서 더 이상 향상되지 않는 정체 구간에 부딪혔습니다. 당시 사용자 행동 시퀀스 정보는 시퀀스의 시작, 끝, 길이 등 단순한 통계량으로만 활용되고 있었습니다.
 
 **해결 과정**
 
-1. **배치 크기 최소화**:. 배치 크기 최소화: Batch Size를 1로 설정하여 단일 학습 데이터가 차지하는 메모리 점유율을 최소화했습니다. 이 때 Gradient Accumulation 기법을 적용하여 전과 같은 배치 사이즈로 학습하는 것과 같은 효과를 얻었습니다.
-2. **입력 길이 최적화**:. 입력 길이 최적화: max_token 길이를 대부분의 대화 길이를 커버하는 4096으로 줄이고, 지나치게 긴 대화를 학습할 때는 zero-shot이 적용되게 하였습니다.
-3. 결과적으로 제한된 환경에서도 성공적으로 파인튜닝을 수행할 수 있었습니다.
+1. 시퀀스 데이터가 담고 있는 순차적, 동적 정보를 모델이 충분히 활용하지 못하고 있다고 판단했습니다.
+2. LSTM 모델을 도입하여, 각 사용자의 행동 시퀀스 전체를 압축된 하나의 임베딩 벡터로 변환했습니다. 이 임베딩 벡터는 시퀀스의 순서와 패턴 정보를 함축하고 있으며, 다른 정적 피처들과 함께 모델에 입력됩니다.
+3. 그 결과 평가지표 점수가 0.3480 이상으로 상승하며 성능 정체 구간을 돌파했습니다.
 
 ## 성과 및 결과
 
 ### 정량적 성과
 
-일상 대화 요약 대회 **최종 1위 달성**
+토스 CTR 예측 경진대회 최종 상위 10% 달성 (70위)
 
-- Private ROUGE: 47.9550
-- Baseline ROUGE: 15.8301
+- Private Score: 0.34814
+- Baseline Score: 0.33185
+
+*Score = Average Precision과 Weighted Log Loss의 평균
 
 ### 경험 및 교훈
 
-- QLoRA를 활용하여 개인용 GPU 같은 제한된 리소스 환경에서도 거대 언어 모델을 성공적으로 미세조정하는 경험을 쌓았습니다.
-- LLM 파인튜닝 과정에서 ROUGE 점수라는 정량적 지표와 실제 사람이 느끼는 요약문의 자연스러움이라는 정성적 품질 사이의 균형을 맞추는 것의 중요성을 배웠습니다.
-- 모델링 과정 전반에서 팀원들과 다양한 접근법을 논의하며, 객관적 근거를 바탕으로 최적의 방향을 결정하는 협업 의사결정 능력을 키웠습니다.
+- 대용량 Tabular 데이터에 최신 딥러닝 아키텍처인 FT-Transformer를 적용하고, 대용량 데이터 처리를 위한 재현 가능한 실험 파이프라인을 구축하는 전체 과정을 경험했습니다.
+- 시계열이나 순서 정보가 중요한 데이터에서 LSTM과 같은 모델을 피처 추출기로 활용하는 피처 엔지니어링이 모델 성능에 큰 영향을 미칠 수 있음을 직접 확인했습니다.
 
-![대회 결과](/projects/assets/images/03/02.png)
+![최종 결과](/projects/assets/images/04/04.png)

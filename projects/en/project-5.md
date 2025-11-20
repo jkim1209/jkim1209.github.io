@@ -1,70 +1,70 @@
-# Computer Vision Project: Document Image Classification
+---
+tags: Python, PyTorch, NLP, LLM, QLoRA, Dialogue Summarization
+date: 2025
+icon: 💬
+---
 
-**Developed a model to accurately classify various images including document images from diverse industry domains. Achieved 1st place on the leaderboard with Macro F1 score of 0.9692 by combining ViT-SigLIP backbone, class-specific augmentation, Focal Loss, and high-resolution pretrained models.**
+# NLP/LLM Project: Dialogue Summarization
 
 ## Project Overview
 
-This project develops a model that classifies various images including document images from diverse industry domains into 17 classes.
+This project aims to develop a Korean dialogue summarization model that accurately and concisely summarizes the essence of daily conversations.
 
-GitHub Repository: [https://github.com/jkim1209/doc_img_classification](https://github.com/jkim1209/doc_img_classification)
+GitHub Repository: [https://github.com/jkim1209/NLI-Dialogue-Summarization](https://github.com/jkim1209/NLI-Dialogue-Summarization)
 
-Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/10o12igXX3xXg1zpI-M4KdHMrxI4OToEL/)
+Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/1n3ZpdBC2U84vmS9k6mGyuqrokve7uZQvnuWrouwvFv4)
 
 ## My Role and Contributions
 
-As team leader, I led the entire project from data analysis to modeling and performance optimization.
+As team leader, I oversaw the entire project and led the LLM (Large Language Model) modeling aspect.
 
-- Data Analysis & Preprocessing: Identified class imbalance issues and designed and applied optimized data augmentation pipelines according to document/ID card/vehicle types.
-- Model Implementation & Experimentation: Experimented with various pretrained models including ViT to explore architectures best suited to the data characteristics.
+- Data Strategy Development: Designed and applied data augmentation techniques such as Paraphrase and Speaker Swap to improve the model's generalization performance.
+- LLM Modeling & Fine-tuning: Selected Decoder-only architectures (SOLAR, Qwen3, etc.) and performed efficient fine-tuning in resource-constrained environments using QLoRA techniques.
+- Prompt Engineering: Designed and tested various prompt structures to enable the model to generate optimal summaries.
+- Performance Analysis & Improvement: Compared and analyzed ROUGE scores and qualitative differences in generated outputs between T5 models and LLMs to select the final model.
 
 ## Key Technologies and Implementation
 
 ### Technologies Used
 
-- Framework: Python, PyTorch, Torchvision, timm, Albumentations, OpenCV
-- Models: ViT, ConvNeXt, EfficientNet, etc.
+- Framework: Python, PyTorch, Transformers, PEFT, TRL, BitsAndBytes
+- Models: T5, KoBART, SOLAR 10.7B, Qwen3 0.6B
 
 ### Core Implementation
 
-- Customized data augmentation pipeline considering class characteristics
-- Addressed class imbalance using Focal Loss
-- Introduced models pretrained on high-resolution images (512+)
-- Implemented 2-stage inference to re-infer samples classified uncertainly in the first stage
+- Built data augmentation pipeline (Paraphrase, Speaker Swap, Synthetic Generation)
+- Comparative experiments between Encoder-Decoder (T5, KoBART) and Decoder-only (LLM) models
+- 4-bit quantization and fine-tuning using QLoRA technique
 
-<div style="display: flex; gap: 1rem; align-items: flex-start;">
-  <img src="/projects/assets/images/05/01.png" alt="Data Augmentation" style="flex: 1; max-width: 50%; height: auto;" />
-  <img src="/projects/assets/images/05/02.png" alt="Model Structure" style="flex: 1; max-width: 50%; height: auto;" />
-</div>
-
-![Experiment Results](/projects/assets/images/05/03.png)
+![Data Augmentation Pipeline](/projects/assets/images/03/01.png)
 
 ## Troubleshooting
 
-### Problem: Breaking Performance Limits on High-Resolution Data
+### Problem: VRAM Shortage During LLM Fine-tuning
 
 **Problem Description**
 
-Despite applying class-specific data augmentation techniques, the Test Macro F1 Score plateaued around 0.85 with no further improvement.
+Unlike Encoder-Decoder models, LLM models require significantly more tokens for Korean text processing, and when combined with instruction prompts for summarization, token count surges. This caused repeated OOM errors and kernel crashes due to VRAM(24GB) shortage during QLoRA fine-tuning.
 
 **Solution**
 
-1. Determined that existing models pretrained on low-resolution (224~384px) images couldn't sufficiently capture detailed features important for document images, such as text.
-2. Increased input resolution to 512px or higher for the same model but performance actually decreased. Models accustomed to low resolution were more sensitive to noise in high-resolution images.
-3. Revised the hypothesis and introduced models pretrained from the start on high-resolution images (512px+). As a result, the Test Macro F1 Score surged to 0.93, and with additional data refinement and Focal Loss application, achieved a final score above 0.95.
+1. Minimized Batch Size: Set Batch Size to 1 to minimize memory footprint of single training samples. Applied Gradient Accumulation technique to achieve the same effect as the previous batch size.
+2. Optimized Input Length: Reduced max_token length to 4096 to cover most conversation lengths, and applied zero-shot for excessively long conversations during training.
+3. As a result, successfully performed fine-tuning even in resource-constrained environments.
 
 ## Results and Achievements
 
 ### Quantitative Results
 
-Achieved 1st place in the document image classification competition
+Achieved 1st place in the daily conversation summarization competition
 
-- Private Macro F1: 0.9692
-- Baseline Macro F1: 0.1695
+- Private ROUGE: 47.9550
+- Baseline ROUGE: 15.8301
 
 ### Learnings and Insights
 
-- Developed the ability to formulate and verify hypotheses while finding root causes of problems in computer vision projects.
-- Experienced firsthand how important it is to match pre-training environments with actual task data characteristics for model performance, and that securing high-quality data (Data-centric AI) is as important as model improvement.
-- Developed analytical thinking and perseverance by logically tracking root causes of problems and repeatedly setting and verifying hypotheses, rather than just pursuing result improvements.
+- Gained experience in successfully fine-tuning large language models in resource-constrained environments like consumer GPUs using QLoRA.
+- Learned the importance of balancing quantitative metrics like ROUGE scores with qualitative aspects like the naturalness of summaries as perceived by humans during LLM fine-tuning.
+- Developed collaborative decision-making skills by discussing various approaches with team members throughout the modeling process and making optimal decisions based on objective evidence.
 
-![Final Results](/projects/assets/images/05/04.png)
+![Competition Result](/projects/assets/images/03/02.png)

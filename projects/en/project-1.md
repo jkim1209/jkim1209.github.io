@@ -1,103 +1,103 @@
-# AI Multi-Agent Project: Financial Chatbot
+---
+tags: Python, BERT, NLP, Finance, Sentiment Analysis, LDA
+date: 2024
+icon: 📈
+---
 
-**Built a multi-agent financial analysis system with 4 specialized agents based on LangChain/LangGraph. Integrates real-time financial data collection via yfinance and web search with ChromaDB RAG system for internal search, providing stock analysis, comparison, and automated report generation with charts. Ensures answer reliability through LLM Judge-based quality evaluation and automatic retry logic, delivering a production-ready End-to-End financial AI service with Streamlit UI and Render.com deployment.**
+# Biodiversity Concern and Firm Performance
 
-## Project Overview
+## Research Overview
 
-This project builds a multi-agent financial analysis system where 4 specialized agents collaborate using LangChain/LangGraph. It integrates RAG (Retrieval-Augmented Generation) for financial terminology retrieval and real-time financial data collection, providing stock analysis, comparison, and automated report generation features while ensuring answer reliability through LLM Judge-based quality evaluation.
+This study examines how biodiversity-related news affects U.S. firm stock returns, bridging the gap between environmental science and finance by providing systematic evidence of how biodiversity concerns influence financial markets.
 
-GitHub Repository: [https://github.com/jkim1209/ai_agent_project](https://github.com/jkim1209/ai_agent_project)
+Research Paper Download: <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5625611>
 
-Presentation Slides: [Google Drive](https://drive.google.com/file/d/1wtD5dT1Mg_HFqJGC8Mj2lduqjFYTcFIH/view)
+## Research Motivation
 
-## My Role and Contributions
+While climate finance has received extensive academic attention, the economic impacts of biodiversity have only recently begun to be studied systematically. Given that biodiversity loss is estimated to cause annual economic damages of $4-20 trillion, I wanted to understand how markets respond to biodiversity-related information.
 
-As team leader, I designed and oversaw the entire system architecture, led core agent and tool development, and handled module integration and deployment.
+## Methodology
 
-- System Architecture Design: Designed a LangGraph-based State Machine workflow with 7 nodes organically connected.
-- Agent & Tool Development: Directly developed 2 out of 4 agents (Financial Analyst, Report Generator) and implemented 8 tools they use (stock information retrieval, historical data, analyst recommendations, web search, chart generation, report saving, etc.).
-- System Integration & Deployment: Integrated modules developed by team members into a unified system, built Streamlit UI for real-time interaction, and deployed via Render.com.
-- Team Collaboration & Issue Management: Assigned tasks and tracked progress using GitHub Project's Kanban board, systematically managed KPIs, milestones, and technical documentation through Notion, and coordinated team members' modules into the overall workflow while resolving conflicts.
+### Data Collection
 
-## Key Technologies and Implementation
+I collected 60,213 biodiversity-related articles from Dow Jones Factiva spanning January 2003 to December 2022. The data shows a clear upward trend in biodiversity coverage, reflecting growing awareness of environmental issues.
 
-### Technologies Used
+![Data Collection](/projects/assets/images/02/00.png)
 
-- Python
-- LLM & AI Agent: LangChain, LangGraph, Upstage Solar Pro 2
-- RAG & Vector DB: ChromaDB, BAAI/bge-m3 (HuggingFace Embeddings)
-- Data Sources: yfinance (financial data), Tavily (web search)
-- Database: SQLite (conversation history)
-- Frontend & Deployment: Streamlit, Render.com
+### Sentiment Analysis with BERT
 
-### Core Implementation
+Using the Bidirectional Encoder Representations from Transformers (BERT) model, I classified each sentence on a scale from 1 (most negative) to 5 (most positive). Examples include:
 
-- Designed 4 specialized LangGraph-based agents (Request Analyst, Supervisor, Financial Analyst, Report Generator)
-- Structured Output-based JSON data transfer between agents with enforced schema
-- Built ChromaDB + BAAI/bge-m3 embedding-based RAG system (embedded 3 finance-related PDFs)
-- Developed 8 financial tools (ticker search, stock info, historical prices, analyst recommendations, web search, chart generation, report saving)
-- LLM Judge quality evaluation system (evaluating accuracy, completeness, relevance, clarity with automatic retry)
-- SQLite-based conversation history management with multi-turn dialogue support
-- Supervisor pattern-based dynamic routing (automatic branching between RAG search vs real-time financial analysis)
-- Streamlit web UI and Render.com deployment
+Negative sentiment (score = 1): Articles discussing legal action against governmental oversight failures in environmental protection, highlighting consequences like major oil spills.
 
-## Multi-Agent Architecture
+Positive sentiment (score = 5): Articles detailing company achievements in energy conservation and sustainability, such as ENERGY STAR® certification.
 
-![Multi-Agent Architecture](/projects/assets/images/01/en-01.png)
+From this analysis, I constructed the Biodiversity Sentiment Index (BSI) by subtracting the daily count of negative articles from positive articles.
 
-## Troubleshooting
+### Physical vs. Transition Risk Analysis
 
-### Problem 1: Tool Call Parsing Errors
+Using Latent Dirichlet Allocation (LDA), I identified five distinct topics and categorized them into:
 
-**Problem Description**
+Physical Risks (2 topics):
 
-When agents invoked tools, they frequently used markdown code blocks or didn't follow the defined format, resulting in parsing errors. This was because the ReAct pattern alone couldn't guarantee format compliance as LLMs output in free-form text.
+- Endangered Species
+- Natural Resource Management
 
-**Solution**
+Transition Risks (3 topics):
 
-1. Introduced LangChain's `with_structured_output()` method to enforce JSON schema.
-2. Defined output formats using Pydantic models, constraining agents to respond in that format.
-3. As a result, tool call parsing success rate improved to 99%.
+- Conservation Policy
+- Environmental News  
+- Regulations and Permits
 
-### Problem 2: Korean Company Ticker Symbol Misrecognition
+## Key Findings
 
-**Problem Description**
+### 1. Short-term Impact with Long-term Attenuation
 
-Korean company ticker symbols were being misrecognized. For example, when asked "Analyze Kakao stock," it searched for Argentine cacao commodity ticker (CACAO.BA) instead of Korean Kakao (035720.KS). This occurred because "Kakao" translates to "cacao" in English, leading yfinance to prioritize cacao commodity-related tickers.
+Higher biodiversity sentiment significantly increases daily stock returns (coefficient ≈ 0.44), but this effect disappears at the monthly horizon. This suggests markets react to sentiment rather than fundamental changes.
 
-**Solution**
+### 2. Transition Risks Dominate Physical Risks
 
-1. Added a ticker mapping table for approximately 50 major Korean companies.
-2. Even for companies not in the mapping table, configured the system to prioritize searching in the Korean stock exchange when input is in Korean.
-3. As a result, ticker search accuracy for major Korean companies improved to over 95%.
+The empirical results strongly support my hypothesis that transition risks have greater impact on stock returns than physical risks.
 
-### Problem 3: Yahoo Finance YTD Chart Parsing Failure
+### 3. Heterogeneous Channel Effects
 
-**Problem Description**
+Within transition risks, I find interesting patterns:
 
-Yahoo Finance's YTD stock price charts failed to parse. This occurred because the Financial Analyst passed data using the `to_string()` method in a variable-space format, but the Report Generator attempted to parse with `sep='\s+'`, resulting in column count mismatches.
+- Environmental news attention loads positively on returns, consistent with increased public awareness raising cost of capital
+- Regulations and permits attention loads negatively, reflecting anticipated operating constraints
 
-**Solution**
+![Research Results 1](/projects/assets/images/02/01.png)
 
-1. Standardized the data transfer format to CSV, so the Financial Analyst passes data using `to_csv()` and the Report Generator parses with `pd.read_csv()`.
-2. As a result, all charts were generated successfully.
+![Research Results 2](/projects/assets/images/02/02.png)
 
-### Problem 4: Comparison Analysis Logic Context Handling Issue
+![Research Results 3](/projects/assets/images/02/03.png)
 
-**Problem Description**
+## Contributions and Implications
 
-The comparison analysis logic couldn't properly distinguish context from previous conversations. For example, after "Analyze Samsung Electronics stock," asking "How about LG Electronics?" would try to compare both stocks. In other words, the logic for determining the relationship between previous conversations and new requests was unstable.
+This research makes three main contributions:
 
-**Solution**
+1. Scalable Measurement: Introduces a comprehensive, news-based biodiversity measure from large-scale textual analysis
+2. Risk Decomposition: Uses topic modeling to distinguish between physical and transition risk channels
+3. Empirical Evidence: Provides robust evidence that transition channels dominate in biodiversity risk pricing
 
-1. Added a structure where the analysis function explicitly recognizes and receives stock information from previous conversations.
-2. For ambiguous comparison requests, first excluded stocks already covered in previous analysis, then used LLM to determine if it's a comparison request, and only then re-added the previous stock for comparative analysis.
-3. As a result, confirmed that over 80% of comparison/difference analysis requests were answered as intended.
+### Practical Implications
 
-## Results and Achievements
+For Investors: Monitoring biodiversity-related news, particularly regulatory changes, can provide valuable signals for portfolio management and ESG investing strategies.
 
-Successfully deployed a web service featuring real-time financial Q&A, single/multi-stock comparative analysis, automated report generation (MD/PDF/TXT), and chart visualization. Additionally, ensured answer quality through LLM Judge quality evaluation, and implemented multi-turn conversations and follow-up question handling based on conversation history.
+For Firms: Companies should proactively manage biodiversity-related transition risks, especially regulatory compliance and public perception.
 
-![Result 1](/projects/assets/images/01/02.png)
+For Policymakers: New biodiversity regulations have immediate market impacts that should be considered in policy design.
 
-![Result 2](/projects/assets/images/01/03.png)
+## Limitations and Future Research
+
+The main limitation is the mismatch between time-series explanatory variables and firm-specific dependent variables. Future research could:
+
+1. Construct firm-level biodiversity indices using 10-K filings
+2. Develop biodiversity-based long-short portfolio strategies
+3. Explore cross-sectional variation in firm exposure to biodiversity risks
+
+## Robustness and Methods
+
+The results are robust to standard asset-pricing controls (market, size, value, profitability, investment, momentum factors) and various specification checks including lagged effects, event-time dynamics, and endogeneity considerations.
+
+This research demonstrates that biodiversity is not just an environmental issue but a material financial factor that markets actively price. The dominance of transition risks over physical risks has important implications for how we think about biodiversity in investment and risk management contexts.

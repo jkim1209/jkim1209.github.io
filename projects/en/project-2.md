@@ -1,99 +1,73 @@
-# Biodiversity Concern and Firm Performance
+---
+tags: Python, MLOps, FastAPI, Docker, Airflow, React, Monitoring
+date: 2025
+icon: 🎬
+---
 
-**A climate finance research analyzing how biodiversity-related news exposure affects firm financial performance. Constructed Biodiversity Sentiment Index (BSI) from news data using BERT-based sentiment analysis and generated Topic Attention Index through Latent Dirichlet Allocation (LDA) topic modeling, validating significant positive effects on short-term excess returns and confirming that Transition Risk acts as the primary channel rather than Physical Risk.**
+# MLOps Project: Movie Recommendation System
 
-## Research Overview
+## Project Overview
 
-This study examines how biodiversity-related news affects U.S. firm stock returns, bridging the gap between environmental science and finance by providing systematic evidence of how biodiversity concerns influence financial markets.
+This project builds an MLOps pipeline managing the entire lifecycle of machine learning models, from data collection to model training, serving, and monitoring.
 
-Research Paper Download: <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5625611>
+GitHub Repository: [https://github.com/jkim1209/mlops-project](https://github.com/jkim1209/mlops-project)
 
-## Research Motivation
+Presentation Slides: [Google Drive](https://drive.google.com/file/d/125RqKVFW9l_Nk6yo8OS24BwmA_vdXj8Z)
 
-While climate finance has received extensive academic attention, the economic impacts of biodiversity have only recently begun to be studied systematically. Given that biodiversity loss is estimated to cause annual economic damages of $4-20 trillion, I wanted to understand how markets respond to biodiversity-related information.
+## My Role and Contributions
 
-## Methodology
+Oversaw the machine learning and backend aspects of the project, playing a key role from model development to API serving and frontend integration.
 
-### Data Collection
+- Modeling & Experiment Management: Implemented a lightweight Numpy-based MLP recommendation model and systematically tracked and managed all experimental processes and results using MLflow.
+- API Server Development: Built an API server providing real-time model inference results using FastAPI. Designed and implemented various endpoints including `/predict` and `/latest-recommendations`.
+- System Deployment: Integrated the model-serving API with a React-developed frontend to enable actual user service access, and built the deployment environment using Docker.
 
-I collected 60,213 biodiversity-related articles from Dow Jones Factiva spanning January 2003 to December 2022. The data shows a clear upward trend in biodiversity coverage, reflecting growing awareness of environmental issues.
+## Key Technologies and Implementation
 
-![Data Collection](/projects/assets/images/02/00.png)
+### Technologies Used
 
-### Sentiment Analysis with BERT
+- Python
+- ML & Data Science: Numpy, Pandas, Scikit-learn
+- MLOps & Backend: FastAPI, PostgreSQL, AWS S3, Docker, Airflow
+- Frontend: React.js
+- Monitoring: MLflow, Prometheus, Grafana, Loki
 
-Using the Bidirectional Encoder Representations from Transformers (BERT) model, I classified each sentence on a scale from 1 (most negative) to 5 (most positive). Examples include:
+### Core Implementation
 
-Negative sentiment (score = 1): Articles discussing legal action against governmental oversight failures in environmental protection, highlighting consequences like major oil spills.
+- Implemented Numpy-based MLP recommendation model
+- Model training monitoring using MLflow
+- FastAPI-based real-time model inference API server
+- Automated data-training-inference pipeline using Airflow DAG
+- Built real-time server and application monitoring system using Prometheus, Grafana, and Loki
 
-Positive sentiment (score = 5): Articles detailing company achievements in energy conservation and sustainability, such as ENERGY STAR® certification.
+### MLOps Architecture
 
-From this analysis, I constructed the Biodiversity Sentiment Index (BSI) by subtracting the daily count of negative articles from positive articles.
+![MLOps Architecture](/projects/assets/images/06/01.png)
 
-### Physical vs. Transition Risk Analysis
+## Troubleshooting
 
-Using Latent Dirichlet Allocation (LDA), I identified five distinct topics and categorized them into:
+### Problem: Recommendation Result Loss Due to Database Loading Failure
 
-Physical Risks (2 topics):
+**Problem Description**
 
-- Endangered Species
-- Natural Resource Management
+Recommended movie posters and titles weren't displaying in the React frontend. Investigation revealed that user viewing records weren't being stored in the PostgreSQL database at all.
 
-Transition Risks (3 topics):
+**Solution**
 
-- Conservation Policy
-- Environmental News  
-- Regulations and Permits
+1. Debugging the data loading logic revealed that when the **`release_date` field was an empty string ("")**, SQL queries generated errors, causing the entire data insertion to fail.
+2. **Cause of Detection Delay**:. Cause of Detection Delay: The model training/inference pipeline referenced locally cached log files instead of the DB, making it appear to function normally. This prevented detection of data loading errors for some time.
+3. Modified data loading code to **handle exceptions when `release_date` field is an empty string (e.g., converting to NULL)**, resolving the issue.
 
-## Key Findings
+![Monitoring Dashboard](/projects/assets/images/06/02.png)
 
-### 1. Short-term Impact with Long-term Attenuation
+## Results and Achievements
 
-Higher biodiversity sentiment significantly increases daily stock returns (coefficient ≈ 0.44), but this effect disappears at the monthly horizon. This suggests markets react to sentiment rather than fundamental changes.
+Successfully built and deployed a complete MLOps pipeline including data collection, model training, batch inference, API serving, and monitoring.
 
-### 2. Transition Risks Dominate Physical Risks
+### Learnings and Insights
 
-The empirical results strongly support my hypothesis that transition risks have greater impact on stock returns than physical risks.
+- Gained development experience organically connecting individual technologies (Docker, FastAPI, Airflow, etc.) to create one complete service.
+- Experienced firsthand how silent failures in one part of a pipeline can affect the entire system, deeply appreciating the importance of end-to-end testing and robust logging systems.
+- Learned the value of collaborative communication by working with team members in unfamiliar fields, understanding and coordinating each other's expertise.
 
-### 3. Heterogeneous Channel Effects
-
-Within transition risks, I find interesting patterns:
-
-- Environmental news attention loads positively on returns, consistent with increased public awareness raising cost of capital
-- Regulations and permits attention loads negatively, reflecting anticipated operating constraints
-
-![Research Results 1](/projects/assets/images/02/01.png)
-
-![Research Results 2](/projects/assets/images/02/02.png)
-
-![Research Results 3](/projects/assets/images/02/03.png)
-
-## Contributions and Implications
-
-This research makes three main contributions:
-
-1. Scalable Measurement: Introduces a comprehensive, news-based biodiversity measure from large-scale textual analysis
-2. Risk Decomposition: Uses topic modeling to distinguish between physical and transition risk channels
-3. Empirical Evidence: Provides robust evidence that transition channels dominate in biodiversity risk pricing
-
-### Practical Implications
-
-For Investors: Monitoring biodiversity-related news, particularly regulatory changes, can provide valuable signals for portfolio management and ESG investing strategies.
-
-For Firms: Companies should proactively manage biodiversity-related transition risks, especially regulatory compliance and public perception.
-
-For Policymakers: New biodiversity regulations have immediate market impacts that should be considered in policy design.
-
-## Limitations and Future Research
-
-The main limitation is the mismatch between time-series explanatory variables and firm-specific dependent variables. Future research could:
-
-1. Construct firm-level biodiversity indices using 10-K filings
-2. Develop biodiversity-based long-short portfolio strategies
-3. Explore cross-sectional variation in firm exposure to biodiversity risks
-
-## Robustness and Methods
-
-The results are robust to standard asset-pricing controls (market, size, value, profitability, investment, momentum factors) and various specification checks including lagged effects, event-time dynamics, and endogeneity considerations.
-
-This research demonstrates that biodiversity is not just an environmental issue but a material financial factor that markets actively price. The dominance of transition risks over physical risks has important implications for how we think about biodiversity in investment and risk management contexts.
+![Final Results](/projects/assets/images/06/03.png)
