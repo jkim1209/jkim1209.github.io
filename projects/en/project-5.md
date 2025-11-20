@@ -36,7 +36,7 @@ As team leader, I oversaw the entire project and led the LLM (Large Language Mod
 - Comparative experiments between Encoder-Decoder (T5, KoBART) and Decoder-only (LLM) models
 - 4-bit quantization and fine-tuning using QLoRA technique
 
-![Data Augmentation Pipeline](/projects/assets/images/03/01.png)
+![Data Augmentation Pipeline](/projects/assets/images/05/01.png)
 
 ## Troubleshooting
 
@@ -67,4 +67,4 @@ Achieved 1st place in the daily conversation summarization competition
 - Learned the importance of balancing quantitative metrics like ROUGE scores with qualitative aspects like the naturalness of summaries as perceived by humans during LLM fine-tuning.
 - Developed collaborative decision-making skills by discussing various approaches with team members throughout the modeling process and making optimal decisions based on objective evidence.
 
-![Competition Result](/projects/assets/images/03/02.png)
+![Competition Result](/projects/assets/images/05/02.png)

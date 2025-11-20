@@ -40,7 +40,7 @@ As team leader, I led the entire project from data analysis to modeling and perf
   <img src="/projects/assets/images/05/02.png" alt="Model Structure" style="flex: 1; max-width: 50%; height: auto;" />
 </div>
 
-![Experiment Results](/projects/assets/images/05/03.png)
+![Experiment Results](/projects/assets/images/04/en-03.png)
 
 ## Troubleshooting
 
@@ -71,4 +71,4 @@ Achieved 1st place in the document image classification competition
 - Experienced firsthand how important it is to match pre-training environments with actual task data characteristics for model performance, and that securing high-quality data (Data-centric AI) is as important as model improvement.
 - Developed analytical thinking and perseverance by logically tracking root causes of problems and repeatedly setting and verifying hypotheses, rather than just pursuing result improvements.
 
-![Final Results](/projects/assets/images/05/04.png)
+![Final Results](/projects/assets/images/04/04.png)

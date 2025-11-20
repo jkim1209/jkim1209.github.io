@@ -47,7 +47,7 @@ Presentation Slides: [Google Drive](https://drive.google.com/file/d/1wtD5dT1Mg_H
 
 ## 멀티 에이전트 아키텍처
 
-![멀티 에이전트 아키텍처](/projects/assets/images/01/01.png)
+![멀티 에이전트 아키텍처](/projects/assets/images/06/01.png)
 
 ## Troubleshooting
 
@@ -102,6 +102,6 @@ Yahoo Finance의 YTD 주가 차트를 파싱 실패하는 문제가 발생했습
 
 실시간 금융 질의응답, 단일/다중 종목 비교 분석, 자동 보고서 생성(MD/PDF/TXT), 차트 시각화 기능을 갖춘 웹 서비스를 성공적으로 배포했습니다. 또한 LLM Judge 품질 평가를 통해 답변 품질을 보장하며, 대화 히스토리 기반 멀티턴 대화 및 후속 질문 처리도 가능하도록 구현했습니다.
 
-![결과 1](/projects/assets/images/01/02.png)
+![결과 1](/projects/assets/images/06/02.png)
 
-![결과 2](/projects/assets/images/01/03.png)
+![결과 2](/projects/assets/images/06/03.png)

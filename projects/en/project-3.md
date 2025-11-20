@@ -32,11 +32,11 @@ Led data analysis and modeling, playing a key role in boosting prediction perfor
 - FT-Transformer-based classification model training with 5-Fold cross-validation
 - User behavior sequence embedding generation using LSTM
 
-![Model Architecture](/projects/assets/images/04/01.png)
+![Model Architecture](/projects/assets/images/03/01.png)
 
-![Feature Engineering](/projects/assets/images/04/02.png)
+![Feature Engineering](/projects/assets/images/03/02.png)
 
-![Training Process](/projects/assets/images/04/03.png)
+![Training Process](/projects/assets/images/03/03.png)
 
 ## Troubleshooting
 
@@ -68,4 +68,4 @@ Achieved **top 10%** (70th place) in Toss CTR prediction competition
 - Experienced the complete process of applying the state-of-the-art deep learning architecture FT-Transformer to large-scale tabular data and building a reproducible experimental pipeline for large-scale data processing.
 - Directly confirmed that feature engineering using models like LSTM as feature extractors can significantly impact model performance on data where time series or sequential information is important.
 
-![Final Results](/projects/assets/images/04/04.png)
+![Final Results](/projects/assets/images/03/04.png)

@@ -40,7 +40,7 @@ Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/10o1
   <img src="/projects/assets/images/05/02.png" alt="모델 구조" style="flex: 1; max-width: 50%; height: auto;" />
 </div>
 
-![실험 결과](/projects/assets/images/05/03.png)
+![실험 결과](/projects/assets/images/04/03.png)
 
 ## Troubleshooting
 
@@ -71,4 +71,4 @@ Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/10o1
 - 사전학습(Pre-training) 환경과 실제 과제(Task)의 데이터 특성을 일치시키는 것이 모델 성능에 얼마나 중요한지, 그리고 모델 개선만큼이나 고품질의 데이터를 확보하는 것(Data-centric AI)이 중요하다는 것을 다시 한번 체감했습니다.
 - 단순한 결과 개선보다 문제의 근본 원인을 논리적으로 추적하며, 가설 설정과 검증을 반복하는 분석적 사고력과 집요함을 기를 수 있었습니다.
 
-![최종 결과](/projects/assets/images/05/04.png)
+![최종 결과](/projects/assets/images/04/04.png)

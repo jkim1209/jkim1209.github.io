@@ -42,7 +42,7 @@ Presentation Slides: [Google Drive](https://drive.google.com/file/d/125RqKVFW9l_
 
 ### MLOps 아키텍처
 
-![MLOps 아키텍처](/projects/assets/images/06/01.png)
+![MLOps 아키텍처](/projects/assets/images/02/01.png)
 
 ## Troubleshooting
 
@@ -58,7 +58,7 @@ React 프론트엔드에서 추천 영화의 포스터와 제목이 표시되지
 2. **문제 탐지 지연 원인**:. 문제 탐지 지연 원인: 모델 학습/추론 파이프라인은 DB가 아닌 로컬에 캐싱된 로그 파일을 참조하고 있어 정상 동작하는 것처럼 보였습니다. 이로 인해 데이터 적재단의 오류가 한동안 탐지되지 못했습니다.
 3. `release_date` 필드가 빈 문자열일 경우를 **예외 처리(NULL 값으로 변환 등)** 하도록 데이터 적재 코드를 수정하여 문제를 해결했습니다.
 
-![모니터링 대시보드](/projects/assets/images/06/02.png)
+![모니터링 대시보드](/projects/assets/images/02/02.png)
 
 ## 성과 및 결과
 
@@ -70,4 +70,4 @@ React 프론트엔드에서 추천 영화의 포스터와 제목이 표시되지
 - 파이프라인의 한 부분에서 발생한 조용한 실패(silent failure)가 시스템 전체에 미치는 영향을 직접 경험하며, End-to-End 테스트와 견고한 로깅 시스템의 중요성을 깊이 체감했습니다.
 - 익숙하지 않은 분야의 팀원들과 협업하며 서로의 전문성을 이해하고 조율하는 과정에서 협업 커뮤니케이션의 가치를 배웠습니다.
 
-![최종 결과](/projects/assets/images/06/03.png)
+![최종 결과](/projects/assets/images/02/03.png)

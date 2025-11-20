@@ -32,11 +32,11 @@ GitHub Repository: [https://github.com/jkim1209/toss-ctr-prediction](https://git
 - FT-Transformer 기반의 분류 모델 학습 및 5-Fold 교차검증
 - LSTM을 이용한 사용자 행동 시퀀스 임베딩 생성
 
-![모델 아키텍처](/projects/assets/images/04/01.png)
+![모델 아키텍처](/projects/assets/images/03/01.png)
 
-![피처 엔지니어링](/projects/assets/images/04/02.png)
+![피처 엔지니어링](/projects/assets/images/03/02.png)
 
-![학습 과정](/projects/assets/images/04/03.png)
+![학습 과정](/projects/assets/images/03/03.png)
 
 ## Troubleshooting
 
@@ -68,4 +68,4 @@ GitHub Repository: [https://github.com/jkim1209/toss-ctr-prediction](https://git
 - 대용량 Tabular 데이터에 최신 딥러닝 아키텍처인 FT-Transformer를 적용하고, 대용량 데이터 처리를 위한 재현 가능한 실험 파이프라인을 구축하는 전체 과정을 경험했습니다.
 - 시계열이나 순서 정보가 중요한 데이터에서 LSTM과 같은 모델을 피처 추출기로 활용하는 피처 엔지니어링이 모델 성능에 큰 영향을 미칠 수 있음을 직접 확인했습니다.
 
-![최종 결과](/projects/assets/images/04/04.png)
+![최종 결과](/projects/assets/images/03/04.png)

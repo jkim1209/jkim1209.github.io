@@ -36,7 +36,7 @@ Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/1n3Z
 - Encoder-Decoder (T5, KoBART) 및 Decoder-only (LLM) 모델 비교 실험
 - QLoRA 기법을 이용한 4-bit 양자화 및 미세조정
 
-![데이터 증강 파이프라인](/projects/assets/images/03/01.png)
+![데이터 증강 파이프라인](/projects/assets/images/05/01.png)
 
 ## Troubleshooting
 
@@ -67,4 +67,4 @@ Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/1n3Z
 - LLM 파인튜닝 과정에서 ROUGE 점수라는 정량적 지표와 실제 사람이 느끼는 요약문의 자연스러움이라는 정성적 품질 사이의 균형을 맞추는 것의 중요성을 배웠습니다.
 - 모델링 과정 전반에서 팀원들과 다양한 접근법을 논의하며, 객관적 근거를 바탕으로 최적의 방향을 결정하는 협업 의사결정 능력을 키웠습니다.
 
-![대회 결과](/projects/assets/images/03/02.png)
+![대회 결과](/projects/assets/images/05/02.png)
