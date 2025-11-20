@@ -19,7 +19,6 @@ math: true
 
 <div align="center">
     <img src="/assets/images/paper_review/ahp-hierarchy.png" width="600" alt="hierarchy">
-    <br>
     <a href="https://www.1000minds.com/decision-making/analytic-hierarchy-process-ahp">
         Analytic Hierarchy Process example
     </a>
@@ -49,7 +48,6 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/qrofs-comparison.png" width="500" alt="Comparison of fuzzy set spaces">
-    <br>
     Membership degree(μ)는 어떤 대상이 집합에 "속하는 정도", Non-membership degree(ν)는 "속하지 않는 정도"를 의미한다.  
     IFS(q=1)에서는 두 값의 합이 1을 넘지 않도록 제한되지만, q가 커질수록 (μ, ν)을 동시에 더 크게 허용해 전문가의 망설임이나 불확실성까지 표현할 수 있다.
 </div>
@@ -77,7 +75,6 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/qrofs-result.png" width="500" alt="qrofs-result">
-    <br>
     <a href="https://peerj.com/articles/cs-2555/" target="_blank">
         Final ranking
     </a>

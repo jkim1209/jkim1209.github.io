@@ -12,8 +12,7 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/Koch_snowflake.gif" width="400" alt="Koch_snowflake">
-    <br>
-    <a href="https://imgur.com/gallery/NIRi3cb">
+    <a href="https://imgur.com/gallery/NIRi3cb" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Koch snowflake
     </a>
 </div>
@@ -35,8 +34,7 @@ CNN이 컨볼루션 층을 순차적으로 쌓는 구조라면, FNN은 **프랙�
 
 <div align="center">
     <img src="/assets/images/paper_review/fnn_architecture.jpg" width="1000" alt="fnn_architecture">
-    <br>
-    <a href="https://www.tandfonline.com/doi/full/10.1080/08839514.2024.2440839#d1e225">
+    <a href="https://www.tandfonline.com/doi/full/10.1080/08839514.2024.2440839#d1e225" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Schematic representation of the diagram of the constructed FNN architecture.
     </a>
 </div>

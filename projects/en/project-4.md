@@ -36,8 +36,8 @@ As team leader, I led the entire project from data analysis to modeling and perf
 - Implemented 2-stage inference to re-infer samples classified uncertainly in the first stage
 
 <div style="display: flex; gap: 1rem; align-items: flex-start;">
-  <img src="/projects/assets/images/05/01.png" alt="Data Augmentation" style="flex: 1; max-width: 50%; height: auto;" />
-  <img src="/projects/assets/images/05/02.png" alt="Model Structure" style="flex: 1; max-width: 50%; height: auto;" />
+  <img src="/projects/assets/images/04/01.png" alt="Data Augmentation" style="flex: 1; max-width: 50%; height: auto;" />
+  <img src="/projects/assets/images/04/02.png" alt="Model Structure" style="flex: 1; max-width: 50%; height: auto;" />
 </div>
 
 ![Experiment Results](/projects/assets/images/04/en-03.png)

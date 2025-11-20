@@ -35,13 +35,10 @@ This entire system operates in the following structure: gaining insights from be
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_architecture.gif" width="600" alt="AI-Driven Nudge Optimization">
-    <br>
     <a href="https://ieeexplore.ieee.org/document/11059932">
         Optimized recommendation model Architecture
     </a>
 </div>
-
-<br>
 
 Before learning how these elements work together, we first need to understand the multi-armed bandit framework itself, which is the core that differentiates this system from existing approaches.
 
@@ -51,11 +48,8 @@ The multi-armed bandit problem can be analogized to deciding which slot machine 
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_MAB_analogy.png" width="500" alt="Multi-Armed Bandit Analogy with Slot Machines">
-    <br>
         Multi-Armed Bandit Analogy
 </div>
-
-<br>
 
 This situation creates tension between Exploration and Exploitation:
 
@@ -72,11 +66,8 @@ So how does the two-tower network fit into this framework? The TWN architecture 
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_TWN_concept.png" width="500" alt="Conceptual Diagram of a Two-Tower Network">
-    <br>
         Two-Tower Network Conceptual Diagram
 </div>
-
-<br>
 
 * **User Tower**: Encodes everything about individual users. This includes not only demographic information like age, income, region, but also behavioral patterns extracted from transaction history, browsing behavior, interaction frequency, preference data like risk tolerance and investment goals, and even psychometric data like personality, values, and lifestyle. It even processes nudge mechanism preference data about which psychological stimuli are most effective for specific user types.
 * **Product Tower**: Encodes information about financial products and related nudge strategies. Each product is represented not only by financial characteristics like return or risk level, but also by behavioral profiles. Various nudge strategies are processed in this tower, including message framing (whether products are presented from profit or loss perspectives), urgency level creating temporal pressure, and default bias exploiting users' default choice tendencies.
@@ -87,13 +78,10 @@ In fact, after training the model, **'risk_tolerance', 'risky_investment', 'phon
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_feature_importance.gif" width="500" alt="Top 40 Important Features in the Model">
-    <br>
     <a href="https://ieeexplore.ieee.org/document/11059932">
         Top 40 Important Features in Model
     </a>
 </div>
-
-<br>
 
 The model's training process was very stable. Training and validation data loss steadily decreased together, and accuracy showed simultaneous increase, indicating good generalization without overfitting.
 
@@ -101,13 +89,10 @@ Ultimately, the model's prediction accuracy on test data reached 91.25%. As can 
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_confusion_matrix.gif" width="500" alt="Confusion Matrix and Classification Report for the TWN Model">
-    <br>
     <a href="https://ieeexplore.ieee.org/document/11059932">
         Confusion Matrix for the TWN Model
     </a>
 </div>
-
-<br>
 
 The ingenuity of this design lies in combining deep learning's expressiveness with reinforcement learning's adaptability. **TWN provides sophisticated understanding of user-product relationships**, and **MAB enables real-time adaptation based on continuous interactions.** Either alone would have difficulty building such an effective system.
 
@@ -137,13 +122,10 @@ Thus MAB continuously optimizes itself by learning which products and nudge stra
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_MAB_interaction_flow.gif" width="600" alt="User Interaction and Adaptive Learning in MAB System">
-    <br>
     <a href="https://ieeexplore.ieee.org/document/11059932">
         User Interaction Flow in MAB
     </a>
 </div>
-
-<br>
 
 This learning process operates through a continuous feedback loop. When users interact with recommendations, those interactions provide reward signals to the bandit algorithm. Positive interactions like clicks, time viewing details, actual purchases provide positive rewards, while immediate ignoring or lack of engagement provides negative or zero rewards. The algorithm uses these signals to update understanding of which strategies are most effective for which users.
 

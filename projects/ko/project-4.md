@@ -36,8 +36,8 @@ Presentation Slides: [Google Slides](https://docs.google.com/presentation/d/10o1
 - 2단계 추론을 도입하여 1단계에서 불확실하게 분류된 샘플 재추론
 
 <div style="display: flex; gap: 1rem; align-items: flex-start;">
-  <img src="/projects/assets/images/05/01.png" alt="데이터 증강" style="flex: 1; max-width: 50%; height: auto;" />
-  <img src="/projects/assets/images/05/02.png" alt="모델 구조" style="flex: 1; max-width: 50%; height: auto;" />
+  <img src="/projects/assets/images/04/01.png" alt="데이터 증강" style="flex: 1; max-width: 50%; height: auto;" />
+  <img src="/projects/assets/images/04/02.png" alt="모델 구조" style="flex: 1; max-width: 50%; height: auto;" />
 </div>
 
 ![실험 결과](/projects/assets/images/04/03.png)

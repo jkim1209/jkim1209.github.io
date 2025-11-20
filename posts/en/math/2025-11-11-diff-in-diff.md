@@ -45,8 +45,7 @@ By subtracting the control group's change (time effect), the time effect mixed i
 
 <div align="center">
   <img src="/assets/images/math/did_parallel_trends.png" width="800" alt="Difference-in-Differences Parallel Trends">
-  <br>
-  <a href="https://patrickthiel.com/the-great-regression-with-python-difference-in-differences-regressions/" target="_blank" rel="noopener noreferrer">
+  <a href="https://patrickthiel.com/the-great-regression-with-python-difference-in-differences-regressions/" target="_blank" rel="noopener noreferrer" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
     Graphical representation of DiD idea
   </a>
 </div>
@@ -165,7 +164,6 @@ The Synthetic Control Method (SCM) creates an "optimal virtual control group" th
 
 <div align="center">
   <img src="/assets/images/math/scm-graph.jpg" width="800" alt="Synthetic Control Method">
-  <br>
   <a href="https://lost-stats.github.io/Model_Estimation/Research_Design/synthetic_control_method.html" target="_blank" rel="noopener noreferrer">
     Synthetic Control Method
   </a>

@@ -45,8 +45,7 @@ def fib(n):
 
 <div align="center">
   <img src='/assets/images/programming/Data Structure and Algorithm_recursive_function.png' width="700" alt="Data Structure and Algorithm_recursive_function">
-  <br>
-  (출처: <a href="https://www.eecs.yorku.ca/course_archive/2016-17/F/2030/labs/lab7/lab7.html">Emulating recursion using a stack</a>)
+  (출처: <a href="https://www.eecs.yorku.ca/course_archive/2016-17/F/2030/labs/lab7/lab7.html" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Emulating recursion using a stack</a>)
 </div>
 
 ```python
@@ -211,7 +210,6 @@ dfs(graph, 1, visited)
 
 <div align="center">
   <img src="/assets/images/programming/Data Structure and Algorithm_linear_search.png" width="600" alt="Data Structure and Algorithm_linear_search" style="display: block; margin: 0;">
-  <br>
   <a href="https://www.geeksforgeeks.org/dsa/what-is-linear-search/">What is Linear Search?</a>
 </div>
 
@@ -250,7 +248,6 @@ print(idx2)
 
 <div align="center">
   <img src="/assets/images/programming/Data Structure and Algorithm_binary_search.png" width="600" alt="Data Structure and Algorithm_binary_search" style="display: block; margin: 0;">
-  <br>
   <a href="https://dolly-desir.medium.com/algorithms-binary-search-2656c7eb5049">Algorithms: Binary Search</a>
 </div>
 
@@ -495,8 +492,8 @@ quick_sort(lst)
 
 | 개념             | 설명                                                                                      |
 | ---------------- | ----------------------------------------------------------------------------------------- |
-| **재귀함수**     | 함수가 자기 자신을 호출하는 방식 <br> 예: 팩토리얼, 피보나치 등                           |
-| **메모이제이션** | 이미 계산한 값을 저장해두고 <br> 동일한 입력에 대해 다시 계산하지 않도록 하는 최적화 기법 |
+| **재귀함수**     | 함수가 자기 자신을 호출하는 방식 (예: 팩토리얼, 피보나치 등)                          |
+| **메모이제이션** | 이미 계산한 값을 저장해두고 동일한 입력에 대해 다시 계산하지 않도록 하는 최적화 기법 |
 
 재귀는 계산을 반복하는 구조.  
 메모이제이션은 중복 계산을 피하기 위한 캐싱.  

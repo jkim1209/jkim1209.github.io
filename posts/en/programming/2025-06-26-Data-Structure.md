@@ -450,9 +450,8 @@ postorder(tree1.root)
 * Python's `dict` and `set` are representative hash table-based structures
 
 <div align="center">
-  <img src="/assets/images/programming/Data Structure and Algorithm_hash_table.svg" width=600 alt="Algorithm_hash_table">  
-  <br>
-  (Source: <a href="https://simplerize.com/data-structures/hash-table-introduction">Hash Table in Data Structure</a>)
+  <img src="/assets/images/programming/Data Structure and Algorithm_hash_table.svg" width=600 alt="Algorithm_hash_table">
+  (Source: <a href="https://simplerize.com/data-structures/hash-table-introduction" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Hash Table in Data Structure</a>)
 </div>
 
 ##### (Reference) Hash: Converting data of arbitrary length into a **fixed-length unique value (hash value)**

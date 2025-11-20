@@ -17,7 +17,6 @@ The core idea of this paper is simple. AI no longer relies on problem sets creat
 
 <div align="center">
   <img src="/assets/images/paper_review/epoch_ai_projection.png" width="600" alt="epoch_ai_projection">
-  <br>
   <a href="https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data">
     Will We Run Out of Data? Limits of LLM Scaling Based on Human-Generated Data
   </a>
@@ -54,7 +53,6 @@ Ultimately, if we only rely on human-generated data, it's difficult to surpass t
 
 <div align="center">
   <img src="/assets/images/paper_review/azr_training.png" width="600" alt="azr_training">
-  <br>
   <a href="https://www.arxiv.org/pdf/2505.03335">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>
@@ -73,7 +71,6 @@ The authors design the following reward system.
 
 <div align="center">
   <img src="/assets/images/paper_review/azr_reward.png" width="600" alt="azr_reward">
-  <br>
   <a href="https://www.arxiv.org/pdf/2505.03335">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>
@@ -183,7 +180,6 @@ After training this way, AZR shows remarkable performance without using any huma
 
 <div align="center">
   <img src="/assets/images/paper_review/azr_result.png" width="600" alt="azr_result">
-  <br>
   <a href="https://www.arxiv.org/pdf/2505.03335">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>
@@ -205,7 +201,6 @@ What's particularly surprising is **cross-domain transfer learning**. Despite tr
 
 <div align="center">
   <img src="/assets/images/paper_review/azr_result2.png" width="600" alt="azr_result2">
-  <br>
   <a href="https://www.arxiv.org/pdf/2505.03335">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>

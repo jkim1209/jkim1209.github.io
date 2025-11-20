@@ -133,7 +133,6 @@ Then where does probability exist? It is distributed not at a specific point but
 
 <div align="center">
   <img src="/assets/images/math/measure_theory_normal_distribution.jpg" width="800" alt="measure_theory_normal_distribution">
-  <br>
     Standard normal distribution (Gauss distribution)
 </div>
 

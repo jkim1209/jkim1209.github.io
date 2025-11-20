@@ -117,8 +117,7 @@ The overall structure is as follows.
 
 <div align="center">
   <img src="/assets/images/deeplearning/transformer_architecture.webp" width="1000" alt="transformer_architecture">
-  <br>
-  (Source: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention? Attention!</a>)
+  (Source: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Attention? Attention!</a>)
 </div>
 
 Below, we examine each element in more detail.
@@ -185,8 +184,7 @@ The final vector input to the model is the sum of **word embedding** and **posit
 
 <div align="center">
   <img src="/assets/images/deeplearning/transformer_encoder.png" width="800" alt="transformer_encoder">
-  <br>
-  (Source: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention? Attention!</a>)
+  (Source: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Attention? Attention!</a>)
 </div>
 
 The encoder block consists of two main sub-layers, with special mechanisms added to each sub-layer.
@@ -220,8 +218,7 @@ In other words, dimensions change in the order $d_{model} \rightarrow d_{ff} \ri
 
 <div align="center">
   <img src="/assets/images/deeplearning/transformer_decoder.png" width="800" alt="transformer_decoder">
-  <br>
-  (Source: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">Attention? Attention!</a>)
+  (Source: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Attention? Attention!</a>)
 </div>
 
 The decoder block is similar to the encoder block, but one sub-layer is added for generation tasks like translation, consisting of a total of 3 sub-layers.

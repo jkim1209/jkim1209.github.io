@@ -188,8 +188,7 @@ Below shows this entire process. As the decoder generates words one by one, the 
 
 <div align="center">
   <img src="/assets/images/deeplearning/attention_encoder_decoder.gif" width="80%" alt="Attention Encoder Decoder">
-  <br>
-  (Source: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">Lena Voita Blog - Sequence to Sequence (seq2seq) and Attention</a>)
+  (Source: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Lena Voita Blog - Sequence to Sequence (seq2seq) and Attention</a>)
 </div>
 
 ---

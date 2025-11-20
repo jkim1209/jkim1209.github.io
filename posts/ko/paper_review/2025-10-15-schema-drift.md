@@ -51,8 +51,7 @@ flowchart TD
     H --> J["JSON 결과 출력"];
 ```
 
-<div align="center">
-Applied KIE Pipeline Workflow
+<div align="center" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Applied KIE Pipeline Workflow
 </div>
 
 <br>

@@ -16,9 +16,8 @@ math: true
 ## 데이터의 벽에 부딪힌 AI
 
 <div align="center">
-  <img src="/assets/images/paper_review/epoch_ai_projection.png" width="600" alt="epoch_ai_projection">  
-  <br>
-  <a href="https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data">
+  <img src="/assets/images/paper_review/epoch_ai_projection.png" width="600" alt="epoch_ai_projection">
+  <a href="https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
     Will We Run Out of Data? Limits of LLM Scaling Based on Human-Generated Data
   </a>
 </div>
@@ -53,9 +52,8 @@ math: true
 ## Absolute Zero 모델의 아이디어
 
 <div align="center">
-  <img src="/assets/images/paper_review/azr_training.png" width="600" alt="azr_training">  
-  <br>
-  <a href="https://www.arxiv.org/pdf/2505.03335">
+  <img src="/assets/images/paper_review/azr_training.png" width="600" alt="azr_training">
+  <a href="https://www.arxiv.org/pdf/2505.03335" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>
 </div>
@@ -72,9 +70,8 @@ Absolute Zero Reasoner(AZR)는 이런 한계를 뛰어넘는다. 핵심 아이�
 이 때 저자들은 다음과 같은 보상체계를 설계한다.
 
 <div align="center">
-  <img src="/assets/images/paper_review/azr_reward.png" width="600" alt="azr_reward">  
-  <br>
-  <a href="https://www.arxiv.org/pdf/2505.03335">
+  <img src="/assets/images/paper_review/azr_reward.png" width="600" alt="azr_reward">
+  <a href="https://www.arxiv.org/pdf/2505.03335" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>
 </div>
@@ -182,9 +179,8 @@ _(Abduction은 한국어로 어떻게 번역하는 게 좋을까 하다가 찾�
 이렇게 학습한 결과 AZR은 어떤 인간 제작 데이터도 사용하지 않고도 다음과 같은 놀라운 성능을 보여준다.
 
 <div align="center">
-  <img src="/assets/images/paper_review/azr_result.png" width="600" alt="azr_result">  
-  <br>
-  <a href="https://www.arxiv.org/pdf/2505.03335">
+  <img src="/assets/images/paper_review/azr_result.png" width="600" alt="azr_result">
+  <a href="https://www.arxiv.org/pdf/2505.03335" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>
 </div>
@@ -204,9 +200,8 @@ _(Abduction은 한국어로 어떻게 번역하는 게 좋을까 하다가 찾�
 ### 모델 크기와 확장성
 
 <div align="center">
-  <img src="/assets/images/paper_review/azr_result2.png" width="600" alt="azr_result2">  
-  <br>
-  <a href="https://www.arxiv.org/pdf/2505.03335">
+  <img src="/assets/images/paper_review/azr_result2.png" width="600" alt="azr_result2">
+  <a href="https://www.arxiv.org/pdf/2505.03335" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
     Absolute Zero: Reinforced Self-play Reasoning with Zero Data
   </a>
 </div>

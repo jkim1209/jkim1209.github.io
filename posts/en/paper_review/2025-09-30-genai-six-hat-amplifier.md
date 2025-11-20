@@ -19,23 +19,25 @@ A 14-week experiment was conducted with 108 students at a teachers' college in C
 The specific experimental procedure was as follows:
 
 **Weeks 1-3:**
+
 - All students educated on PBL tasks and Six-Hat Thinking technique
 - End of week 3: TTCT and SCCT creativity tests administered
 - Test results used to classify students into top 20% (high creativity) and bottom 20% (low creativity)
 
 **Weeks 4-16:**
+
 - Two randomly divided groups (GSG and SG) conduct projects
 - GSG: AI usage permitted, SG: AI usage not permitted
 
 Therefore, in the experimental design during weeks 4-16, students are classified in a 2×2 manner:
+
 - High creativity + AI use
 - High creativity + No AI use
 - Low creativity + AI use
 - Low creativity + No AI use
 
 <div align="center">
-  <img src="/assets/images/paper_review/cognitive_exp_mech.png" width="600" alt="cognitive_exp_mech">
-  <br>
+  <img src="/assets/images/paper_review/cognitive_exp_mech.png" width="600" alt="cognitive_exp_mech">  
   <a href="https://educationaltechnologyjournal.springeropen.com/articles/10.1186/s41239-025-00545-x/figures/2">
     Exploring cognitive presence patterns in GenAI-integrated six-hat thinking technique scaffolded discussion: an epistemic network analysis
   </a>

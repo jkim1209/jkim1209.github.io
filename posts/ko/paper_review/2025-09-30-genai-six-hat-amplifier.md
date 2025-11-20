@@ -19,15 +19,18 @@ math: true
 구체적인 실험 절차는 다음과 같다:
 
 **1주~3주차:**
+
 - 모든 학생에게 PBL 과제와 Six-Hat Thinking 기법 교육
 - 3주차 말: TTCT와 SCCT 창의성 테스트 실시
 - 테스트 결과로 학생들을 상위 20%(고창의성), 하위 20%(저창의성)로 분류
 
 **4주~16주차:**
+
 - 무작위로 나눠진 두 그룹(GSG와 SG)이 프로젝트 수행
 - GSG: AI 사용 가능, SG: AI 사용 불가
 
 따라서 실험 설계상 4~16주차에 학생들은 2×2로 분류된다:
+
 - 고창의성 + AI 사용
 - 고창의성 + AI 미사용
 - 저창의성 + AI 사용
@@ -35,7 +38,6 @@ math: true
 
 <div align="center">
   <img src="/assets/images/paper_review/cognitive_exp_mech.png" width="600" alt="cognitive_exp_mech">  
-  <br>
   <a href="https://educationaltechnologyjournal.springeropen.com/articles/10.1186/s41239-025-00545-x/figures/2">
     Exploring cognitive presence patterns in GenAI-integrated six-hat thinking technique scaffolded discussion: an epistemic network analysis
   </a>

@@ -47,7 +47,7 @@ As team leader, I designed and oversaw the entire system architecture, led core 
 
 ## Multi-Agent Architecture
 
-![Multi-Agent Architecture](/projects/assets/images/01/en-01.png)
+![Multi-Agent Architecture](/projects/assets/images/06/en-01.png)
 
 ## Troubleshooting
 
@@ -102,6 +102,6 @@ The comparison analysis logic couldn't properly distinguish context from previou
 
 Successfully deployed a web service featuring real-time financial Q&A, single/multi-stock comparative analysis, automated report generation (MD/PDF/TXT), and chart visualization. Additionally, ensured answer quality through LLM Judge quality evaluation, and implemented multi-turn conversations and follow-up question handling based on conversation history.
 
-![Result 1](/projects/assets/images/01/02.png)
+![Result 1](/projects/assets/images/06/02.png)
 
-![Result 2](/projects/assets/images/01/03.png)
+![Result 2](/projects/assets/images/06/03.png)

@@ -233,8 +233,7 @@ $$
 > <center><img src='/assets/images/machinelearning/SVD_SVD.webp' width = 900 alt="SVD_SVD"></center>
 >
 ><div align="center">
->  <a href="https://towardsdatascience.com/singular-value-decomposition-svd-demystified-57fc44b802a0/">Singular Value Decomposition (SVD), Demystified</a>
->  <br>
+>  <a href="https://towardsdatascience.com/singular-value-decomposition-svd-demystified-57fc44b802a0/" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Singular Value Decomposition (SVD), Demystified</a>
 ></div>
 
 #### (2) Derivation
@@ -327,8 +326,7 @@ Transform the coordinate axes representing existing input variables to other coo
 >
 >
 > <img src='/assets/images/machinelearning/PCA_pca3.webp' width="600" alt="PCA_pca3" style="display: block; margin: 0;">
->
-> [Principal Component Analysis Guide & Example](https://statisticsbyjim.com/basics/principal-component-analysis/)
+> <a href="https://statisticsbyjim.com/basics/principal-component-analysis/" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Principal Component Analysis Guide & Example</a>
 
 ### (2) Detailed Steps Using Formulas
 

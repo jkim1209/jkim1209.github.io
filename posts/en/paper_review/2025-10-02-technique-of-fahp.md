@@ -19,7 +19,6 @@ The process of choosing 'the best coffee' isn't determined by taste alone. Some 
 
 <div align="center">
     <img src="/assets/images/paper_review/ahp-hierarchy.png" width="600" alt="hierarchy">
-    <br>
     <a href="https://www.1000minds.com/decision-making/analytic-hierarchy-process-ahp">
         Analytic Hierarchy Process example
     </a>
@@ -49,7 +48,6 @@ Here, as parameter $q$ increases, the range of values membership and non-members
 
 <div align="center">
     <img src="/assets/images/paper_review/qrofs-comparison.png" width="500" alt="Comparison of fuzzy set spaces">
-    <br>
     Membership degree(μ) means the "degree to which an object belongs" to a set, Non-membership degree(ν) means the "degree to which it doesn't belong."
     In IFS(q=1), the sum of two values is restricted not to exceed 1, but as q increases, it allows both (μ, ν) to be simultaneously larger, expressing even expert's hesitation or uncertainty.
 </div>
@@ -77,7 +75,6 @@ The researchers applied TR-q-ROFNS-based FAHP to five main criteria (C1: Availab
 
 <div align="center">
     <img src="/assets/images/paper_review/qrofs-result.png" width="500" alt="qrofs-result">
-    <br>
     <a href="https://peerj.com/articles/cs-2555/" target="_blank">
         Final ranking
     </a>

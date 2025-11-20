@@ -50,8 +50,7 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/overview_different_AI_models_for_algorithmic_trading.jpg" width="800" alt="Overview of different AI models for Algorithmic Trading">
-    <br>
-    <a href="https://doi.org/10.7717/peerj-cs.2555">
+    <a href="https://doi.org/10.7717/peerj-cs.2555" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Overview of different AI models for Algorithmic Trading
     </a>
 </div>
@@ -60,8 +59,7 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_RNN.jpg" width="600" alt="Architecture of RNN">
-    <br>
-    <a href="https://doi.org/10.7717/peerj-cs.2555">
+    <a href="https://doi.org/10.7717/peerj-cs.2555" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Architecture of RNN
     </a>
 </div>
@@ -84,8 +82,7 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_LSTM.jpg" width="800" alt="Architecture of LSTM">
-    <br>
-    <a href="https://doi.org/10.7717/peerj-cs.2555">
+    <a href="https://doi.org/10.7717/peerj-cs.2555" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Architecture of LSTM
     </a>
 </div>
@@ -125,8 +122,7 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_CNN.jpg" width="800" alt="Architecture of CNN">
-    <br>
-    <a href="https://doi.org/10.7717/peerj-cs.2555">
+    <a href="https://doi.org/10.7717/peerj-cs.2555" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Architecture of CNN
     </a>
 </div>
@@ -149,8 +145,7 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_autoencoders.jpg" width="600" alt="Architecture of Autoencoders">
-    <br>
-    <a href="https://doi.org/10.7717/peerj-cs.2555">
+    <a href="https://doi.org/10.7717/peerj-cs.2555" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Architecture of Autoencoders
     </a>
 </div>
@@ -177,8 +172,7 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_variational_autoencoders_VAE.jpg" width="600" alt="Architecture of Variational Autoencoders (VAE)">
-    <br>
-    <a href="https://doi.org/10.7717/peerj-cs.2555">
+    <a href="https://doi.org/10.7717/peerj-cs.2555" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Architecture of Variational Autoencoders (VAE)
     </a>
 </div>
@@ -214,8 +208,7 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_transformer.jpg" width="600" alt="Architecture of Transformer">
-    <br>
-    <a href="https://doi.org/10.7717/peerj-cs.2555">
+    <a href="https://doi.org/10.7717/peerj-cs.2555" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Architecture of Transformer
     </a>
 </div>

@@ -35,13 +35,10 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_architecture.gif" width="600" alt="AI-Driven Nudge Optimization">
-    <br>
-    <a href="https://ieeexplore.ieee.org/document/11059932">
+    <a href="https://ieeexplore.ieee.org/document/11059932" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Optimized recommendation model Architecture
     </a>
 </div>
-
-<br>
 
 이 요소들이 어떻게 함께 작동하는지 알아보기 전에, 이 시스템을 기존 접근법과 차별화하는 핵심인 멀티 암드 밴딧 프레임워크 자체를 먼저 이해해야 합니다.
 
@@ -51,11 +48,8 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_MAB_analogy.png" width="500" alt="Multi-Armed Bandit Analogy with Slot Machines">
-    <br>
         Multi-Armed Bandit Analogy
 </div>
-
-<br>
 
 이 상황은 탐험(Exploration)과 활용(Exploitation)사이의 긴장 관계를 만들어냅니다.
 
@@ -72,11 +66,8 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_TWN_concept.png" width="500" alt="Conceptual Diagram of a Two-Tower Network">
-    <br>
         Two-Tower Network Conceptual Diagram
 </div>
-
-<br>
 
 * **사용자 타워 (User Tower):** 개인 사용자에 대한 모든 것을 인코딩합니다. 여기에는 나이, 소득, 지역과 같은 인구 통계학적 정보뿐만 아니라, 거래 내역, 브라우징 행동, 상호작용 빈도에서 추출된 행동 패턴, 위험 감수 성향, 투자 목표와 같은 선호도 데이터, 그리고 성격, 가치관, 라이프스타일과 같은 심리학적 데이터까지 포함됩니다. 심지어 어떤 심리적 자극이 특정 사용자 유형에 가장 효과적인지에 대한 넛지 메커니즘 선호도 데이터까지 처리합니다.
 * **상품 타워 (Product Tower):** 금융 상품 및 관련 넛지 전략에 대한 정보를 인코딩합니다. 각 상품은 수익률이나 위험 수준과 같은 금융적 특성뿐만 아니라, 행동 프로필에 의해서도 표현됩니다. 상품이 이익 관점에서 제시되는지 손실 관점에서 제시되는지(메시지 프레이밍), 시간적 압박을 주는 긴급성 수준, 사용자의 기본 선택 경향을 활용하는 디폴트 바이어스 등 다양한 넛지 전략이 이 타워에서 처리됩니다.
@@ -87,13 +78,10 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_feature_importance.gif" width="500" alt="Top 40 Important Features in the Model">
-    <br>
-    <a href="https://ieeexplore.ieee.org/document/11059932">
+    <a href="https://ieeexplore.ieee.org/document/11059932" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Top 40 Important Features in Model
     </a>
 </div>
-
-<br>
 
 모델의 학습 과정은 매우 안정적이었습니다. 훈련 데이터와 검증 데이터의 손실(loss)이 꾸준히 함께 감소했으며, 정확도(accuracy)는 동반 상승하는 모습을 보여 과적합 없이 일반화가 잘 이루어졌습니다.
 
@@ -101,13 +89,10 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_confusion_matrix.gif" width="500" alt="Confusion Matrix and Classification Report for the TWN Model">
-    <br>
-    <a href="https://ieeexplore.ieee.org/document/11059932">
+    <a href="https://ieeexplore.ieee.org/document/11059932" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         Confusion Matrix for the TWN Model
     </a>
 </div>
-
-<br>
 
 이 설계의 독창성은 딥러닝의 표현력과 강화학습의 적응성을 결합한 데 있습니다. **TWN은 사용자-상품 관계에 대한 정교한 이해를 제공**하고, **MAB는 지속적인 상호작용을 기반으로 실시간 적응을 가능하게 합니다.** 어느 한쪽만으로는 이처럼 효과적인 시스템을 구축하기 어렵습니다.
 
@@ -137,13 +122,10 @@ mermaid: true
 
 <div align="center">
     <img src="/assets/images/paper_review/nudge_optimization_MAB_interaction_flow.gif" width="600" alt="User Interaction and Adaptive Learning in MAB System">
-    <br>
-    <a href="https://ieeexplore.ieee.org/document/11059932">
+    <a href="https://ieeexplore.ieee.org/document/11059932" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">
         User Interaction Flow in MAB
     </a>
 </div>
-
-<br>
 
 이 학습 과정은 지속적인 피드백 루프를 통해 작동합니다. 사용자가 추천과 상호작용하면, 그 상호작용은 밴딧 알고리즘에 보상 신호를 제공합니다. 클릭, 상세 정보 확인 시간, 실제 구매와 같은 긍정적인 상호작용은 양의 보상을 제공하고, 즉각적인 무시나 참여가 없는 경우는 음의 보상 또는 0의 보상을 제공합니다. 알고리즘은 이 신호들을 사용하여 어떤 전략이 어떤 사용자에게 가장 효과적인지에 대한 이해를 업데이트합니다.
 

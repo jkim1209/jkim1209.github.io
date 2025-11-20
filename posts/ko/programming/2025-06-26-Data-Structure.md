@@ -452,7 +452,6 @@ postorder(tree1.root)
 
 <div align="center">
   <img src="/assets/images/programming/Data Structure and Algorithm_hash_table.svg" width=600 alt="Algorithm_hash_table">  
-  <br>
   (출처: <a href="https://simplerize.com/data-structures/hash-table-introduction">Hash Table in Data Structure</a>)
 </div>
 
@@ -599,7 +598,7 @@ myhash.printTable()
 
 #### 5) 그래프(graph)
 
-<img src="/assets/images/programming/Data Structure and Algorithm_graph.jpg" width=600 alt="Data Structure and Algorithm_graph"> 
+<img src="/assets/images/programming/Data Structure and Algorithm_graph.jpg" width=600 alt="Data Structure and Algorithm_graph">
 
 * 참고) 트리도 그래프 안에 포함된다: 각 딕셔너리의 key가 트리의 부모 Node, value들은 자식 Node로 표현
 

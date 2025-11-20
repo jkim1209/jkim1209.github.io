@@ -22,7 +22,7 @@ While climate finance has received extensive academic attention, the economic im
 
 I collected 60,213 biodiversity-related articles from Dow Jones Factiva spanning January 2003 to December 2022. The data shows a clear upward trend in biodiversity coverage, reflecting growing awareness of environmental issues.
 
-![Data Collection](/projects/assets/images/02/00.png)
+![Data Collection](/projects/assets/images/01/00.png)
 
 ### Sentiment Analysis with BERT
 
@@ -66,11 +66,11 @@ Within transition risks, I find interesting patterns:
 - Environmental news attention loads positively on returns, consistent with increased public awareness raising cost of capital
 - Regulations and permits attention loads negatively, reflecting anticipated operating constraints
 
-![Research Results 1](/projects/assets/images/02/01.png)
+![Research Results 1](/projects/assets/images/01/01.png)
 
-![Research Results 2](/projects/assets/images/02/02.png)
+![Research Results 2](/projects/assets/images/01/02.png)
 
-![Research Results 3](/projects/assets/images/02/03.png)
+![Research Results 3](/projects/assets/images/01/03.png)
 
 ## Contributions and Implications
 

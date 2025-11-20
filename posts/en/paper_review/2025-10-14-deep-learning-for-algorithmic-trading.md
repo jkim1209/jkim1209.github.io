@@ -50,7 +50,6 @@ The paper classifies currently used deep learning models into 7 major architectu
 
 <div align="center">
     <img src="/assets/images/paper_review/overview_different_AI_models_for_algorithmic_trading.jpg" width="800" alt="Overview of different AI models for Algorithmic Trading">
-    <br>
     <a href="https://doi.org/10.7717/peerj-cs.2555">
         Overview of different AI models for Algorithmic Trading
     </a>
@@ -60,7 +59,6 @@ The paper classifies currently used deep learning models into 7 major architectu
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_RNN.jpg" width="600" alt="Architecture of RNN">
-    <br>
     <a href="https://doi.org/10.7717/peerj-cs.2555">
         Architecture of RNN
     </a>
@@ -84,7 +82,6 @@ $$
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_LSTM.jpg" width="800" alt="Architecture of LSTM">
-    <br>
     <a href="https://doi.org/10.7717/peerj-cs.2555">
         Architecture of LSTM
     </a>
@@ -125,7 +122,6 @@ Research shows LSTM overwhelmed existing statistical models and simple ML models
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_CNN.jpg" width="800" alt="Architecture of CNN">
-    <br>
     <a href="https://doi.org/10.7717/peerj-cs.2555">
         Architecture of CNN
     </a>
@@ -149,7 +145,6 @@ While some research attempted to automate technical analysis by inputting price 
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_autoencoders.jpg" width="600" alt="Architecture of Autoencoders">
-    <br>
     <a href="https://doi.org/10.7717/peerj-cs.2555">
         Architecture of Autoencoders
     </a>
@@ -177,7 +172,6 @@ Particularly, Variational Autoencoders (VAE) are used to generate synthetic data
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_variational_autoencoders_VAE.jpg" width="600" alt="Architecture of Variational Autoencoders (VAE)">
-    <br>
     <a href="https://doi.org/10.7717/peerj-cs.2555">
         Architecture of Variational Autoencoders (VAE)
     </a>
@@ -214,7 +208,6 @@ However, performance greatly depends on how the graph is constructed, and comput
 
 <div align="center">
     <img src="/assets/images/paper_review/architecture_transformer.jpg" width="600" alt="Architecture of Transformer">
-    <br>
     <a href="https://doi.org/10.7717/peerj-cs.2555">
         Architecture of Transformer
     </a>

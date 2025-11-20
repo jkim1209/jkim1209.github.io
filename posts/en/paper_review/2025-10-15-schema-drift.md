@@ -51,13 +51,10 @@ flowchart TD
     H --> J["JSON Result Output"];
 ```
 
-<div align="center">
-Applied KIE Pipeline Workflow
+<div align="center" style="font-style: italic; color: #888; text-decoration: none; border-bottom: none;">Applied KIE Pipeline Workflow
 </div>
 
 <br>
-
-The core of this pipeline consists of three components:
 
 1. **Amazon Textract (Eyes)**: Goes beyond simple OCR to extract structural information along with text from documents. Preserves relationships between elements like whether text is in a table or connected to specific labels.
 

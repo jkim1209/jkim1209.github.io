@@ -187,8 +187,7 @@ Attention은 디코더의 모든 시점마다 수행됩니다. 즉, 각 단어�
 아래는 이러한 전체 과정을 보여줍니다. 디코더가 단어를 하나씩 생성할 때마다 Softmax 위의 어텐션 가중치(파란색 막대)가 계속해서 변합니다. 이는 매번 다른 단어를 출력하는 시점마다 그 시점에 최적화된 새로운 Context Vector를 만들고 있다는 의미입니다.
 
 <div align="center">
-  <img src="/assets/images/deeplearning/attention_encoder_decoder.gif" width="80%" alt="Attention Encoder Decoder">  
-  <br>
+  <img src="/assets/images/deeplearning/attention_encoder_decoder.gif" width="80%" alt="Attention Encoder Decoder">
   (출처: <a href="https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html">Lena Voita Blog - Sequence to Sequence (seq2seq) and Attention</a>)
 </div>
 

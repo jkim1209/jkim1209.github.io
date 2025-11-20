@@ -22,7 +22,7 @@ icon: 📈
 
 2003년 1월부터 2022년 12월까지 Dow Jones Factiva에서 생물다양성 관련 기사 60,213건을 수집했습니다. 데이터는 환경 문제에 대한 인식 증가를 반영하여 생물다양성 보도가 명확한 증가 추세를 보였습니다.
 
-![데이터 수집](/projects/assets/images/02/00.png)
+![데이터 수집](/projects/assets/images/01/00.png)
 
 ### BERT 기반 감성 분석
 
@@ -66,11 +66,11 @@ Latent Dirichlet Allocation (LDA)를 사용하여 5가지 주제를 식별하고
 - 환경 뉴스 주목도는 수익률에 양(+)의 영향을 미치며, 이는 대중 인식 증가가 자본 비용을 상승시키는 것과 일치합니다
 - 규제 및 허가 주목도는 음(-)의 영향을 미치며, 예상되는 운영 제약을 반영합니다
 
-![연구 결과 1](/projects/assets/images/02/01.png)
+![연구 결과 1](/projects/assets/images/01/01.png)
 
-![연구 결과 2](/projects/assets/images/02/02.png)
+![연구 결과 2](/projects/assets/images/01/02.png)
 
-![연구 결과 3](/projects/assets/images/02/03.png)
+![연구 결과 3](/projects/assets/images/01/03.png)
 
 ## 기여 및 함의
 

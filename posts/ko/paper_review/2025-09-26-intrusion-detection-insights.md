@@ -6,9 +6,9 @@ categories: [Research, Review]
 tags: [deep learning, machine learning, intrusion detection, tabular data, SMOTE, CTR, FT transformer]
 ---
 
-# 정형 데이터: 머신러닝 vs 딥러닝
+## 정형 데이터: 머신러닝 vs 딥러닝
 
-Ali et al. "Deep Learning vs. Machine Learning for Intrusion Detection in Computer Networks: A Comparative Study" (2025)를 읽으면서 현재 내가 참가 중인 CTR 예측 경진대회의 데이터와 공통점이 많은 것 같아 한번 정리해 보게 되었다. 
+Ali et al. "Deep Learning vs. Machine Learning for Intrusion Detection in Computer Networks: A Comparative Study" (2025)를 읽으면서 현재 내가 참가 중인 CTR 예측 경진대회의 데이터와 공통점이 많은 것 같아 한번 정리해 보게 되었다.
 
 ## 연구 결과와 의외의 발견
 

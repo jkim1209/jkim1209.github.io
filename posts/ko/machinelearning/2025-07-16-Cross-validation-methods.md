@@ -8,13 +8,10 @@ math: true
 mermaid: true
 ---
 
-## 0. 모델을 학습하기 위해 전체 데이터를 학습데이터와 평가데이터로 나누는 과정이 필요
-
-### 0-1. 학습/평가 데이터를 나누는 가장 기본적인 **hold-out** 방식
-
-<img src="/assets/images/machinelearning/holdout.webp" width="600" alt="holdout">
+## 학습/평가 데이터를 나누는 가장 기본적인 **hold-out** 방식
 
 <p align="center">
+  <img src="/assets/images/machinelearning/holdout.webp" width="600" alt="holdout">
   <a href="https://medium.com/@hahahumble/cross-validation-clearly-explained-in-5-graphs-9b83067bc696">Image Source</a>
 </p>
 
@@ -41,9 +38,8 @@ print("TEST:", X_test)
 - 하나의 데이터를 테스트셋으로, 나머지를 학습셋으로 사용. 이 과정을 모든 데이터에 반복
 - 작은 데이터셋에서 학습 능력을 극대화하고 싶을 때
 
-<img src="/assets/images/machinelearning/LOOCV.webp" width="600" alt="LOOCV">
-
 <p align="center">
+  <img src="/assets/images/machinelearning/LOOCV.webp" width="600" alt="LOOCV">
   <a href="https://medium.com/@hahahumble/cross-validation-clearly-explained-in-5-graphs-9b83067bc696">Image Source</a>
 </p>
 
@@ -79,9 +75,8 @@ for train_idx, test_idx in LeaveOneOut().split(X):
 - 데이터를 k개의 동일한 크기의 폴드로 나눈 후 각 폴드를 한 번씩 테스트셋으로 사용
 - 균형 잡힌 데이터셋에서 보편적으로 사용
 
-<img src="/assets/images/machinelearning/kfold.png" width="600" alt="kfold">
-
 <p align="center">
+  <img src="/assets/images/machinelearning/kfold.png" width="600" alt="kfold">
   <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html#sphx-glr-auto-examples-model-selection-plot-cv-indices-py">Image Source</a>
 </p>
 
@@ -101,12 +96,11 @@ for train_idx, test_idx in kf.split(X):
 
 ### 1-3. **Stratified K-Fold CV**
 
-- 원래 데이터셋의 클래스 비율을 각 폴드에서도 동일하게 유지함 
+- 원래 데이터셋의 클래스 비율을 각 폴드에서도 동일하게 유지함
 - 클래스 불균형이 있는 분류 문제에서 클래스 비율을 유지하고자 할 때
 
-<img src="/assets/images/machinelearning/stratifiedkfold.png" width="600" alt="stratifiedkfold">
-
 <p align="center">
+  <img src="/assets/images/machinelearning/stratifiedkfold.png" width="600" alt="stratifiedkfold">
   <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html#sphx-glr-auto-examples-model-selection-plot-cv-indices-py">Image Source</a>
 </p>
 
@@ -137,14 +131,13 @@ for train_idx, test_idx in skf.split(X, y):
 # TEST:  [ 2  5  6 10 11]  / Class count: {0: 1, 1: 4}
 ```
 
-### 1-4. **Group K-Fold CV** 
+### 1-4. **Group K-Fold CV**
 
 - 동일 그룹이 학습셋과 테스트셋에 동시에 포함되지 않도록 나눔
 - 데이터 샘플 간 독립성이 없는 경우 그룹 단위 성능 평가에 적합
 
-<img src="/assets/images/machinelearning/groupkfold.png" width="600" alt="groupkfold">
-
 <p align="center">
+  <img src="/assets/images/machinelearning/groupkfold.png" width="600" alt="groupkfold">
   <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html#sphx-glr-auto-examples-model-selection-plot-cv-indices-py">Image Source</a>
 </p>
 
@@ -177,9 +170,8 @@ look-ahead bias 방지를 위해 일반적인 CV method 사용 불가
 
 ### 2-1.  **Rolling Window CV**
 
-<img src="/assets/images/machinelearning/slidingwindowCV.png" width="600" alt="slidingwindowCV">
-
 <p align="center">
+  <img src="/assets/images/machinelearning/slidingwindowCV.png" width="600" alt="slidingwindowCV">
   <a href="https://www.kaggle.com/code/cworsnup/backtesting-cross-validation-for-timeseries/notebook">Image Source</a>
 </p>
 
@@ -201,9 +193,8 @@ for train_index, test_index in cv.split(x):
 
 ### 2-2.**Expanding Window CV**
 
-<img src="/assets/images/machinelearning/expandingwindowCV.png" width="600" alt="expandingwindowCV">
-
 <p align="center">
+  <img src="/assets/images/machinelearning/expandingwindowCV.png" width="600" alt="expandingwindowCV">
   <a href="https://www.kaggle.com/code/cworsnup/backtesting-cross-validation-for-timeseries/notebook">Image Source</a>
 </p>
 
@@ -228,9 +219,8 @@ for train_index, test_index in cv.split(x):
 
 ### 2-3. **Blocked CV**
 
-<img src="/assets/images/machinelearning/blockedCV.jpg" width="600" alt="blockedCV">
-
 <p align="center">
+  <img src="/assets/images/machinelearning/blockedCV.jpg" width="600" alt="blockedCV">
   <a href="https://www.packtpub.com/en-us/learning/how-to-tutorials/cross-validation-strategies-for-time-series-forecasting-tutorial/">Image Source</a>
 </p>
 

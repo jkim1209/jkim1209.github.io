@@ -42,7 +42,7 @@ Oversaw the machine learning and backend aspects of the project, playing a key r
 
 ### MLOps Architecture
 
-![MLOps Architecture](/projects/assets/images/06/01.png)
+![MLOps Architecture](/projects/assets/images/02/01.png)
 
 ## Troubleshooting
 
@@ -58,7 +58,7 @@ Recommended movie posters and titles weren't displaying in the React frontend. I
 2. **Cause of Detection Delay**:. Cause of Detection Delay: The model training/inference pipeline referenced locally cached log files instead of the DB, making it appear to function normally. This prevented detection of data loading errors for some time.
 3. Modified data loading code to **handle exceptions when `release_date` field is an empty string (e.g., converting to NULL)**, resolving the issue.
 
-![Monitoring Dashboard](/projects/assets/images/06/02.png)
+![Monitoring Dashboard](/projects/assets/images/02/02.png)
 
 ## Results and Achievements
 
@@ -70,4 +70,4 @@ Successfully built and deployed a complete MLOps pipeline including data collect
 - Experienced firsthand how silent failures in one part of a pipeline can affect the entire system, deeply appreciating the importance of end-to-end testing and robust logging systems.
 - Learned the value of collaborative communication by working with team members in unfamiliar fields, understanding and coordinating each other's expertise.
 
-![Final Results](/projects/assets/images/06/03.png)
+![Final Results](/projects/assets/images/02/03.png)
