@@ -2,9 +2,9 @@
 tags: Python, PyTorch, Computer Vision, ViT, Image Classification
 date: 2025
 icon: 📄
+title: Document Image Classification
+description: Developed a model to accurately classify various images including document images from diverse industry domains. Achieved 1st place on the leaderboard with Macro F1 score of 0.9692 by combining ViT-SigLIP backbone, class-specific augmentation, Focal Loss, and high-resolution pretrained models.
 ---
-
-# Computer Vision Project: Document Image Classification
 
 ## Project Overview
 

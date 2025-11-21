@@ -2,9 +2,9 @@
 tags: Python, MLOps, FastAPI, Docker, Airflow, React, Monitoring
 date: 2025
 icon: 🎬
+title: MLOps - Movie Recommendation System Development
+description: Built a movie recommendation system based on movie data collected from TMDB API and user viewing logs. Implemented an End-to-End movie recommendation MLOps system including data collection, preprocessing and modeling, Airflow automation pipeline, and monitoring using Prometheus and Grafana.
 ---
-
-# MLOps Project: Movie Recommendation System
 
 ## Project Overview
 

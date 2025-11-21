@@ -2,9 +2,9 @@
 tags: Python, BERT, NLP, Finance, Sentiment Analysis, LDA
 date: 2024
 icon: 📈
+title: Biodiversity Concern and Firm Performance (SSRN WP)
+description: 최근에 급부상하고 있는 Climate Finance 연구의 일환으로 생물다양성 관련 이슈 노출이 기업의 재무성과에 미치는 영향을 분석한 연구입니다. BERT 기반 감성분석으로 뉴스 데이터에서 Biodiversity Sentiment Index (BSI)를 구축하고, Latent Dirichlet Allocation (LDA) 주제 모델링으로 Topic Attention Index를 생성하여 단기 초과수익률에 유의한 양의 효과를 검증하였으며, 물리적 위험(Physical Risk)보다는 전환 위험(Transition Risk)이 주요 채널로 작용함을 확인했습니다.
 ---
-
-# Biodiversity Concern and Firm Performance
 
 ## 연구 개요
 

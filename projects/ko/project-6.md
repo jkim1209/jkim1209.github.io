@@ -2,9 +2,9 @@
 tags: Python, LangChain, LangGraph, AI Agent, RAG, Finance
 date: 2025
 icon: 🤖
+title: AI 멀티 에이전트 - 금융 챗봇
+description: LangChain/LangGraph 기반 4개 전문화 에이전트로 구성된 금융 분석 멀티 에이전트 시스템을 구축합니다. yfinance·웹 검색을 통한 실시간 금융 데이터 수집과 ChromaDB RAG 시스템을 활용한 내부 검색을 통합하여 차트를 포함한 주식 분석·비교 및 자동 보고서 생성 기능을 제공합니다. LLM Judge 기반 품질 평가 및 자동 재시도 로직을 통해 답변 신뢰성을 보장하며, Streamlit UI와 Render.com 배포로 실사용 가능한 End-to-End 금융 AI 서비스를 제공합니다.
 ---
-
-# AI Multi-Agent Project: 금융 챗봇
 
 ## 프로젝트 개요
 

@@ -2,9 +2,9 @@
 tags: Python, PyTorch, FT-Transformer, LSTM, CTR Prediction
 date: 2025
 icon: 📊
+title: AD Click Through Rate Prediction
+description: Developed a model predicting ad click probability by combining user behavior logs and other available data. Integrated user sequence LSTM embeddings into FT-Transformer-based architecture to improve prediction stability and performance, achieving top 10% on the leaderboard.
 ---
-
-# CTR Prediction Project: Toss Ad Click Prediction
 
 ## Project Overview
 

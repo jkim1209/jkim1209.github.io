@@ -2,9 +2,9 @@
 tags: Python, PyTorch, FT-Transformer, LSTM, CTR Prediction
 date: 2025
 icon: 📊
+title: Toss 광고 클릭률 예측
+description: 사용자 행동 로그와 기타 보유 데이터를 결합해 광고 클릭 확률을 예측하는 모델을 개발합니다. FT-Transformer 기반 구조에 사용자 시퀀스 LSTM 임베딩을 통합하여 예측 안정성과 성능을 개선하며 리더보드 상위 10% 성과를 달성했습니다.
 ---
-
-# CTR Prediction Project: Toss 광고 클릭률 예측
 
 ## 프로젝트 개요
 

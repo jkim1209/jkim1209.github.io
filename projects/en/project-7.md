@@ -2,9 +2,9 @@
 tags: Python, OCR, PaddleOCR, Vision-LLM, RAG, FastAPI, React
 date: 2025
 icon: 🧾
+title: [WIP] AI-based Receipt Verification System
+description: An AI-based web application that automatically verifies various types of receipts and detects anomalies/fraud. Specialized in verifying legal proof documents in South Korea, including tax invoices, invoices, and cash receipts, with automated validation of qualified evidence requirements based on the Corporate Tax Act and Value Added Tax Act, and provides legal justification through a RAG system. Provides 95%+ accuracy field extraction using a Hybrid OCR system combining Fine-tuned PaddleOCR and Qwen2.5-VL, and processes various receipt formats regardless of layout. Automatically verifies law-based validation items including amount consistency checks, business registration number format and checksum validation, and qualified evidence requirements for simple receipts, presenting relevant legal provisions and improvement suggestions when violations are detected.
 ---
-
-# [In Progress] ReceiptVerify: AI-based Receipt Verification and Anomaly Detection System
 
 ## Project Overview
 
@@ -32,7 +32,7 @@ A two-stage system designed to achieve both accuracy and speed in receipt field 
 
 **Smart Fallback Logic**
 
-```
+```bash
 PaddleOCR Extraction → Confidence Evaluation (7 factors)
 ├─ Confidence > 0.6: Use PaddleOCR result (~500ms)
 └─ Confidence ≤ 0.6: Re-extract with Vision-LLM (~3s)

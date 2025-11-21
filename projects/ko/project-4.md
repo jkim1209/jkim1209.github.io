@@ -2,9 +2,9 @@
 tags: Python, PyTorch, Computer Vision, ViT, Image Classification
 date: 2025
 icon: 📄
+title: 문서 이미지 분류
+description: 다양한 산업 도메인의 문서 이미지를 포함한 여러 이미지를 정확히 분류하는 모델을 개발합니다. ViT-SigLIP 백본과 클래스별 증강, Focal Loss, 고해상도 사전학습 모델을 결합하여 Macro F1 0.9692를 기록하며 리더보드 1위 성과를 달성했습니다.
 ---
-
-# Computer Vision Project: 문서 이미지 분류
 
 ## 프로젝트 개요
 

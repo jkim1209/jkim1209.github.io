@@ -2,9 +2,9 @@
 tags: Python, LangChain, LangGraph, AI Agent, RAG, Finance
 date: 2025
 icon: 🤖
+title: AI Multi-Agent - Financial Chatbot
+description: Built a multi-agent financial analysis system with 4 specialized agents based on LangChain/LangGraph. Integrates real-time financial data collection via yfinance and web search with ChromaDB RAG system for internal search, providing stock analysis, comparison, and automated report generation with charts. Ensures answer reliability through LLM Judge-based quality evaluation and automatic retry logic, delivering a production-ready End-to-End financial AI service with Streamlit UI and Render.com deployment.
 ---
-
-# AI Multi-Agent Project: Financial Chatbot
 
 ## Project Overview
 

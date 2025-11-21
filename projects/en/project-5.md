@@ -2,9 +2,9 @@
 tags: Python, PyTorch, NLP, LLM, QLoRA, Dialogue Summarization
 date: 2025
 icon: 💬
+title: NLP/LLM-based Dialogue Summarization
+description: Developed a model that quickly summarizes various Korean conversations from daily life. Achieved 1st place on the leaderboard by comparing Encoder-Decoder architecture-based models with Decoder-only architecture-based LLM models through data augmentation and QLoRA fine-tuning.
 ---
-
-# NLP/LLM Project: Dialogue Summarization
 
 ## Project Overview
 
