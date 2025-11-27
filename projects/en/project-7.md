@@ -1,42 +1,107 @@
 ---
-tags: Python, OCR, PaddleOCR, Vision-LLM, RAG, FastAPI, React
+tags: Python, Vision-LLM, Qwen2.5-VL, EasyOCR, RAG, FastAPI, React
 date: 2025
 icon: 🧾
-title: [WIP] AI-based Receipt Verification System
-description: An AI-based web application that automatically verifies various types of receipts and detects anomalies/fraud. Specialized in verifying legal proof documents in South Korea, including tax invoices, invoices, and cash receipts, with automated validation of qualified evidence requirements based on the Corporate Tax Act and Value Added Tax Act, and provides legal justification through a RAG system. Provides 95%+ accuracy field extraction using a Hybrid OCR system combining Fine-tuned PaddleOCR and Qwen2.5-VL, and processes various receipt formats regardless of layout. Automatically verifies law-based validation items including amount consistency checks, business registration number format and checksum validation, and qualified evidence requirements for simple receipts, presenting relevant legal provisions and improvement suggestions when violations are detected.
+title: "[WIP] ReceiptVerify: AI-based Receipt Verification & Anomaly Detection System"
+description: An AI-based web application that automatically verifies various types of receipts and detects anomalies/fraud. Specialized in verifying legal proof documents in South Korea, including tax invoices, invoices, and cash receipts, with automated validation of qualified evidence requirements based on the Corporate Tax Act and Value Added Tax Act, and provides legal justification through a RAG system. Provides 95%+ accuracy field extraction using Vision-LLM Only architecture with Qwen2.5-VL (4bit) + EasyOCR, and also automatically detects language and currency to process multi-language receipts from Korea, US, Japan, China, etc.
 ---
 
 ## Project Overview
 
-A system developed to automate receipt processing for sole proprietors and corporations, and to detect forged/falsified receipts or receipts that do not meet qualified evidence requirements. Performs rapid field extraction using Fine-tuned PaddleOCR and Qwen2.5-VL, automatically determines whether qualified evidence requirements are violated through law-based validation rules and a RAG system, and presents legal justification. Can process not only legal proof documents such as tax invoices, but also general receipts from convenience stores, restaurants, etc., regardless of layout.
+A system developed to automate receipt processing for sole proprietors and corporations in South Korea, and to detect forged/falsified receipts or receipts that do not meet qualified evidence requirements. Performs fast and accurate field extraction using Qwen2.5-VL (4bit quantization) + EasyOCR-based Vision-LLM Only pipeline, automatically determines whether qualified evidence requirements are violated through law-based validation rules and a RAG system, and presents legal justification.
 
 **Project Period:** November 10, 2025 ~ Present (In Progress)
 
+**v2.0.0 Major Changes:** Transitioned from PaddleOCR Fine-tuning based Hybrid system to Vision-LLM Only architecture. No training required, reduced VRAM requirements (7GB → 4GB), added multi-language support.
+
+<details>
+<summary><b>Demo Screenshots (Click to expand)</b></summary>
+
+![Receipt Upload](/projects/assets/images/07/en01.png)
+
+![Extraction Results](/projects/assets/images/07/en02.png)
+
+![Anomaly Detection Results](/projects/assets/images/07/en03.png)
+
+<div style="display: flex; gap: 1rem; align-items: flex-start;">
+  <img src="/projects/assets/images/07/en04.png" alt="Multi-language Support" style="flex: 1; max-width: 50%; height: auto;" />
+  <img src="/projects/assets/images/07/en05.png" alt="History" style="flex: 1; max-width: 50%; height: auto;" />
+</div>
+
+</details>
+
 ## System Architecture
 
-### Hybrid OCR System
+Simplified from the existing Hybrid OCR system (PaddleOCR → VLM Fallback) to a single Vision-LLM pipeline.
 
-A two-stage system designed to achieve both accuracy and speed in receipt field extraction.
-
-**Stage 1: Fine-tuned PaddleOCR**
-
-- Fine-tuned PP-OCRv3 MobileNetV3 model with CORD, SROIE, Custom datasets (total 1,989 images)
-- Achieved Detection Hmean 69.83%, Recognition Accuracy 91.06%
-- Processing speed: ~500ms/image
-
-**Stage 2: Vision-LLM Fallback**
-
-- Utilizing Qwen2.5-VL-7B-Instruct 8bit model (local GPU inference)
-- Automatic fallback when confidence < 0.6 via confidence evaluation system (7 factors)
-- Target 95%+ accuracy with Few-shot prompting, ~3 seconds processing
-
-**Smart Fallback Logic**
-
-```bash
-PaddleOCR Extraction → Confidence Evaluation (7 factors)
-├─ Confidence > 0.6: Use PaddleOCR result (~500ms)
-└─ Confidence ≤ 0.6: Re-extract with Vision-LLM (~3s)
+```markdown
+                        User Upload Image
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│           Vision Service (backend-vision:8002)                  │
+│              Qwen2.5-VL-7B (4bit) + EasyOCR                     │
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  Step 1: EasyOCR (bbox extraction)                        │  │
+│  │    • Korean + English, GPU accelerated                    │  │
+│  │    • OCR text → Country hints (₩, Seoul, etc.)            │  │
+│  │    • Output: [{text, bbox, confidence}, ...]              │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│                              ▼                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  Step 2: Qwen2.5-VL (4bit, ~4GB VRAM)                     │  │
+│  │    • Auto document type detection (4 types)               │  │
+│  │    • Country/Currency auto detection                      │  │
+│  │    • Few-shot prompting (10+ examples)                    │  │
+│  │    • JSON field extraction (2-3s)                         │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│                              ▼                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  Step 3: Bbox Matcher                                     │  │
+│  │    • Fuzzy matching (threshold: 0.7)                      │  │
+│  │    • Field normalization (amount, date, business no.)     │  │
+│  │    • Frontend bbox visualization coordinates              │  │
+│  └───────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                    HTTP (httpx async client)
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              Main API (backend:8000)                            │
+│              FastAPI + PostgreSQL                               │
+│                                                                 │
+│    • Template Validation (4 base templates)                     │
+│    • Rule-based Anomaly Detection (score 0-1)                   │
+│    • LLM Verification (GPT-4o-mini, optional)                   │
+│    • RAG Legal Explanation (FAISS + OpenAI)                     │
+└─────────────────────────────────────────────────────────────────┘
 ```
+
+### Document Types (4 types)
+
+| Type | Description | Examples |
+|------|-------------|----------|
+| `korean_tax_invoice_traditional` | Traditional paper tax invoice | Yellow/gray header |
+| `korean_tax_invoice_electronic` | Electronic/delegated tax invoice | Red/blue border |
+| `simple_receipt` | Simple receipts, card slips, cash receipts | Convenience stores, cafes, restaurants |
+| `multi_language` | Foreign receipts | US, JP, CN, etc. |
+
+### Country Detection System
+
+Automatically detects country/currency through OCR text analysis.
+
+| Detection Factor | Pattern Examples |
+|------------------|------------------|
+| Currency symbols | ₩→KR, $→US, ¥→JP/CN, €→EU, £→GB |
+| Address patterns | Seoul/Busan→KR, State/Street→US, 都/県/市→JP |
+| Business numbers | XXX-XX-XXXXX→KR, XX-XXXXXXX→US |
+| Language detection | 한글→KR, 日本語→JP, 简体中文→CN |
+
+Accurate country identification based on the above 4 criteria scoring.
 
 ### 2-Stage Validation System
 
@@ -49,8 +114,8 @@ PaddleOCR Extraction → Confidence Evaluation (7 factors)
 
 **Stage 2: Legal Explanation Generation** (Anomaly cases only)
 
-- Trigger: Anomaly score ≥ 30 or user request
-- RAG search: Laws (Value Added Tax Act, Corporate Tax Act, Income Tax Act), National Tax Service FAQ, Casebook
+- Trigger: Anomaly score ≥ 30 AND legal proof document, OR user request
+- RAG search: Laws (Value Added Tax Act, Corporate Tax Act, Income Tax Act), National Tax Service FAQ
 - LLM explanation generation: Legal justification, violation explanation, improvement suggestions
 
 ### RAG/IR System
@@ -75,10 +140,11 @@ PaddleOCR Extraction → Confidence Evaluation (7 factors)
 **Backend**
 
 - Python 3.10+, FastAPI
-- PaddleOCR PP-OCRv3 MobileNetV3 (Fine-tuned)
-- Qwen2.5-VL-7B-Instruct 8bit (~7-9GB VRAM)
-- GPT-4o-mini (LLM validation, optional)
-- OpenAI embeddings + FAISS (RAG)
+- **Vision-LLM**: Qwen2.5-VL-7B-Instruct (4bit, ~4GB VRAM)
+- **OCR**: EasyOCR (Korean + English, GPU)
+- **LLM Verification**: GPT-4o-mini (optional)
+- **RAG**: OpenAI embeddings + FAISS
+- PostgreSQL
 
 **Frontend**
 
@@ -88,28 +154,44 @@ PaddleOCR Extraction → Confidence Evaluation (7 factors)
 
 **MLOps**
 
-- Docker + Docker Compose
-- PaddlePaddle GPU 2.6.1, CUDA 11.7/11.8
-- WANDB (experiment tracking)
+- Docker + Docker Compose (NVIDIA GPU support)
+- Microservices: backend-main (8000), backend-vision (8002)
+
+### Docker Service Structure
+
+```markdown
+┌─────────────────────────────────────────────────────────┐
+│                    Docker Compose                       │
+├─────────────┬─────────────┬────────────┬────────────────┤
+│   frontend  │   backend   │  backend   │      db        │
+│   :3000     │   :8000     │  -vision   │   PostgreSQL   │
+│   (React)   │   (FastAPI) │   :8002    │   :5432        │
+│             │             │  (GPU)     │                │
+└─────────────┴──────┬──────┴─────┬──────┴────────────────┘
+                     │            │
+                     └────────────┘
+                   HTTP (receipt_network)
+```
 
 ### Core Implementations
 
-**1. PaddleOCR Fine-tuning**
+**1. Vision-LLM Field Extraction**
 
-- Integrated dataset: CORD 1,000 images + SROIE 626 images + Custom 17 images
-- Detection: PP-OCRv3 MobileNetV3, 150 epochs, Early Stopping @ 122
-- Recognition: PP-OCRv5 Korean, 100 epochs, Early Stopping @ 20
-- Achieved No Overfitting (Val-Test diff < 3%)
+- Qwen2.5-VL-7B-Instruct (4bit quantization)
+- Few-shot prompting: 10+ real Korean receipt examples + law-based field definitions
+- Separate prompts by document type (tax_invoice_kr, simple_receipt, multilang, pharmacy_receipt_kr)
+- Processing time: 2-3s/image (RTX 3090)
 
-**2. Hybrid OCR System**
+**2. Bbox Matching System**
 
-- Confidence evaluation system (7 factors): Missing required fields, OCR block count, validation failures, unrealistic amounts, etc.
-- Smart Fallback logic: Automatic fallback when confidence ≤ 0.6
-- Vision-LLM Few-shot Prompting: 6 real Korean receipt examples + Korean tax law compliance
+- Matching EasyOCR bbox results with Vision-LLM extracted values
+- Fuzzy matching (threshold: 0.7)
+- Field normalization: Amount (remove commas), Date (YYYY-MM-DD), Business number (remove hyphens)
+- Frontend visualization of extracted field positions
 
 **3. Anomaly Detection System**
 
-- Data constraints: Only 1,643 normal receipts exist, 0 fraudulent receipts
+- Data constraints: Only normal receipts exist, 0 fraudulent receipts
 - ML-based approach not feasible → Rule-based + Zero-shot LLM approach
 - 2-Stage Validation: Separate Score calculation (Stage 1) and Legal explanation (Stage 2)
 
@@ -117,25 +199,44 @@ PaddleOCR Extraction → Confidence Evaluation (7 factors)
 
 - Law crawling: Corporate Tax Act, Income Tax Act, Value Added Tax Act articles
 - National Tax Service FAQ crawling: Expenditure evidence, qualified evidence
-- Document preprocessing: JSON conversion, chunking, metadata organization
 - FAISS index creation and Retriever implementation
 
-## Technical Achievements
+## Performance
 
-**1. OCR Fine-tuning**
+| Metric | Qwen2.5-VL (4bit) + EasyOCR |
+|--------|----------------------------|
+| **Field Extraction Accuracy** | 95%+ |
+| **Processing Time** | 2-3s/image |
+| **Cost** | $0 (local GPU) |
+| **VRAM** | ~4-5GB |
+| **Document Types** | 4 types auto-detection |
+| **Multi-language** | KR, US, JP, CN |
+| **Bbox Extraction** | EasyOCR |
 
-- Detection Hmean improved 20% over Pretrained model (50% → 70%)
-- Recognition Accuracy improved 11% (80% → 91%)
-- Prevented Overfitting (Validation-Test difference < 3%)
+## Architecture Change History
 
-**2. Hybrid OCR System**
+### v1.x → v2.0.0 Transition Reasons
 
-- Balance between speed and accuracy: Average processing time <1 second, target accuracy 92-95%
-- Cost efficiency: $0 achieved through PaddleOCR + Qwen2.5-VL local inference
-- Maintained Vision-LLM usage rate <50% with Smart Fallback
+**v1.x Hybrid OCR Limitations:**
 
-**3. Data Shortage Problem Resolution**
+- Insufficient data for PaddleOCR Fine-tuning (trained on 1,989 CORD/SROIE images)
+- 2-Stage pipeline complexity (OCR → Confidence → Fallback)
+- High VRAM requirements (~7-9GB for 8bit)
+- Korean-centric, limited multi-language support
 
-- ML-based anomaly detection not feasible (0 fraudulent receipt data)
-- Presented alternative with Rule-based + Zero-shot LLM
-- Ensured reliability through domain knowledge and law-based validation
+**v2.0.0 Vision-LLM Only Advantages:**
+
+- No Fine-tuning required (replaced with Few-shot prompting)
+- Single pipeline simplification
+- Reduced VRAM requirements (4bit: ~4GB)
+- Automatic multi-language detection (KR, US, JP, CN)
+- Automatic document type classification
+
+### Deprecated
+
+Components removed in v2.0.0:
+
+- PaddleOCR fine-tuned models
+- OCR training scripts/configs
+- Detection/Recognition evaluation scripts
+- backend-ocr microservice

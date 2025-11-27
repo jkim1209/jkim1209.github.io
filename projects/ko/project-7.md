@@ -1,42 +1,107 @@
 ---
-tags: Python, OCR, PaddleOCR, Vision-LLM, RAG, FastAPI, React
+tags: Python, Vision-LLM, Qwen2.5-VL, EasyOCR, RAG, FastAPI, React
 date: 2025
 icon: 🧾
 title: [진행중] ReceiptVerify: AI 기반 영수증 검증 및 이상탐지 시스템
-description: 다양한 종류의 영수증을 자동으로 검증하고 이상/허위를 탐지하는 AI 기반 웹 애플리케이션입니다. 특히 대한민국의 세금계산서, 계산서, 현금영수증 등 법적 증빙 서류에 대한 검증에 특화되어 있으며, 법인세법·부가가치세법 기반 적격증빙 요건 자동 검증과 RAG 시스템을 통한 법적 근거 제시 기능을 제공합니다. Fine-tuned PaddleOCR과 Qwen2.5-VL를 결합한 Hybrid OCR 시스템으로 95%+ 정확도의 필드 추출을 제공하며, 레이아웃에 관계없이 다양한 형태의 영수증을 처리합니다. 금액 정합성 검증, 사업자번호 형식 및 체크섬 검증, 간이영수증 적격증빙 요건 등 법령 기반 검증 항목을 자동으로 확인하며, 위반 사항 발견 시 관련 법령 조항과 개선 방안을 함께 제시합니다.
+description: 다양한 종류의 영수증을 자동으로 검증하고 이상/허위를 탐지하는 AI 기반 웹 애플리케이션입니다. 특히 대한민국의 세금계산서, 계산서, 현금영수증 등 법적 증빙 서류에 대한 검증에 특화되어 있으며, 법인세법·부가가치세법 기반 적격증빙 요건 자동 검증과 RAG 시스템을 통한 법적 근거 제시 기능을 제공합니다. Qwen2.5-VL (4bit) + EasyOCR 기반 Vision-LLM Only 아키텍처로 95%+ 정확도의 필드 추출을 제공하며, 기타 한국·미국·일본·중국 등 다국어 영수증도 언어 및 화폐 단위를 자동 감지하여 처리합니다.
 ---
 
 ## 프로젝트 개요
 
-개인사업자 및 기업의 영수증 처리 업무를 자동화하고 위변조 또는 적격증빙 요건 미충족 영수증을 탐지하기 위해 개발된 시스템입니다. Fine-tuned PaddleOCR과 Qwen2.5-VL를 이용하여 빠른 필드 추출을 수행하고, 법령 기반 검증 규칙과 RAG 시스템을 통해 적격증빙 요건 위반 여부를 자동으로 판단하며 법적 근거를 제시합니다. 세금계산서 등 법적 증빙 서류뿐만 아니라 편의점·음식점 등 일반 영수증도 레이아웃에 관계없이 처리할 수 있습니다.
+개인사업자 및 기업의 영수증 처리 업무를 자동화하고 위변조 또는 적격증빙 요건 미충족 영수증을 탐지하기 위해 개발된 시스템입니다. Qwen2.5-VL (4bit quantization) + EasyOCR 기반 Vision-LLM Only 파이프라인으로 빠르고 정확한 필드 추출을 수행하고, 법령 기반 검증 규칙과 RAG 시스템을 통해 적격증빙 요건 위반 여부를 자동으로 판단하며 법적 근거를 제시합니다.
 
 **프로젝트 기간:** 2025년 11월 10일 ~ 현재 (진행중)
 
+**v2.0.0 주요 변경:** PaddleOCR Fine-tuning 기반 Hybrid 시스템에서 Vision-LLM Only 아키텍처로 전환. 학습 불필요, VRAM 요구사항 감소 (7GB → 4GB), 다국어 지원 추가.
+
+<details>
+<summary><b>데모 스크린샷 (클릭하여 펼치기)</b></summary>
+
+![영수증 업로드](/projects/assets/images/07/ko01.png)
+
+![추출 결과](/projects/assets/images/07/ko02.png)
+
+![이상탐지 결과](/projects/assets/images/07/ko03.png)
+
+<div style="display: flex; gap: 1rem; align-items: flex-start;">
+  <img src="/projects/assets/images/07/ko04.png" alt="다국어 지원" style="flex: 1; max-width: 50%; height: auto;" />
+  <img src="/projects/assets/images/07/ko05.png" alt="히스토리" style="flex: 1; max-width: 50%; height: auto;" />
+</div>
+
+</details>
+
 ## 시스템 아키텍처
 
-### Hybrid OCR System
+v2.0.0: 기존 Hybrid OCR 시스템(PaddleOCR → VLM Fallback)에서 단일 Vision-LLM 파이프라인으로 단순화했습니다.
 
-영수증 필드 추출의 정확도와 속도를 동시에 달성하기 위한 2단계 시스템입니다.
-
-**Stage 1: Fine-tuned PaddleOCR**
-
-- PP-OCRv3 MobileNetV3 모델을 CORD, SROIE, Custom 데이터셋(총 1,989장)으로 파인튜닝
-- Detection Hmean 69.83%, Recognition Accuracy 91.06% 달성
-- 처리 속도: ~500ms/image
-
-**Stage 2: Vision-LLM Fallback**
-
-- Qwen2.5-VL-7B-Instruct 8bit 모델 활용 (로컬 GPU 추론)
-- 신뢰도 평가 시스템(7가지 요인)으로 0.6 미만일 때 자동 전환
-- Few-shot prompting으로 95%+ 정확도 목표, ~3초 처리
-
-**Smart Fallback 로직**
-
+```markdown
+                        User Upload Image
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│           Vision Service (backend-vision:8002)                  │
+│              Qwen2.5-VL-7B (4bit) + EasyOCR                     │
+│                                                                 │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  Step 1: EasyOCR (bbox extraction)                        │  │
+│  │    • Korean + English, GPU accelerated                    │  │
+│  │    • OCR text → Country hints (₩, Seoul, etc.)            │  │
+│  │    • Output: [{text, bbox, confidence}, ...]              │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│                              ▼                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  Step 2: Qwen2.5-VL (4bit, ~4GB VRAM)                     │  │
+│  │    • Auto document type detection (4 types)               │  │
+│  │    • Country/Currency auto detection                      │  │
+│  │    • Few-shot prompting (10+ examples)                    │  │
+│  │    • JSON field extraction (2-3s)                         │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                              │                                  │
+│                              ▼                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │  Step 3: Bbox Matcher                                     │  │
+│  │    • Fuzzy matching (threshold: 0.7)                      │  │
+│  │    • Field normalization (amount, date, business no.)     │  │
+│  │    • Frontend bbox visualization coordinates              │  │
+│  └───────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                    HTTP (httpx async client)
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              Main API (backend:8000)                            │
+│              FastAPI + PostgreSQL                               │
+│                                                                 │
+│    • Template Validation (4 base templates)                     │
+│    • Rule-based Anomaly Detection (score 0-1)                   │
+│    • LLM Verification (GPT-4o-mini, optional)                   │
+│    • RAG Legal Explanation (FAISS + OpenAI)                     │
+└─────────────────────────────────────────────────────────────────┘
 ```
-PaddleOCR 추출 → 신뢰도 평가 (7가지 요인)
-├─ 신뢰도 > 0.6: PaddleOCR 결과 사용 (~500ms)
-└─ 신뢰도 ≤ 0.6: Vision-LLM 재추출 (~3s)
-```
+
+### Base Document Types (4가지)
+
+| Type | 설명 | 예시 |
+|------|------|------|
+| `korean_tax_invoice_traditional` | 전통적 종이 세금계산서 | 노란색/회색 헤더 |
+| `korean_tax_invoice_electronic` | 전자/위수탁 세금계산서 | 빨간색/파란색 테두리 |
+| `simple_receipt` | 간이영수증, 카드전표, 현금영수증 | 편의점, 카페, 식당 |
+| `multi_language` | 해외 영수증 | US, JP, CN 등 |
+
+### Country Detection System
+
+OCR 텍스트 분석을 통해 국가/통화를 자동 감지합니다.
+
+| 감지 요소 | 패턴 예시 |
+|-----------|-----------|
+| 통화 기호 | ₩→KR, $→US, ¥→JP/CN, €→EU, £→GB |
+| 주소 패턴 | 서울/부산→KR, State/Street→US, 都/県/市→JP |
+| 사업자번호 | XXX-XX-XXXXX→KR, XX-XXXXXXX→US |
+| 언어 감지 | 한글→KR, 日本語→JP, 简体中文→CN |
+
+위 4단계 기준 scoring 으로 정확한 국가 판별.
 
 ### 2-Stage Validation System
 
@@ -49,8 +114,8 @@ PaddleOCR 추출 → 신뢰도 평가 (7가지 요인)
 
 **Stage 2: Legal Explanation Generation** (이상 케이스만)
 
-- 트리거: 이상 점수 ≥ 30 또는 사용자 요청 시
-- RAG 검색: 법령(부가가치세법, 법인세법, 소득세법), 국세청 FAQ, Casebook
+- 트리거: 이상 점수 ≥ 30 이면서 법적 증빙 서류이거나 또는 사용자 요청 시
+- RAG 검색: 법령(부가가치세법, 법인세법, 소득세법), 국세청 FAQ
 - LLM 설명 생성: 법적 근거 제시, 위반 사항 설명, 개선 방안 제시
 
 ### RAG/IR System
@@ -75,10 +140,11 @@ PaddleOCR 추출 → 신뢰도 평가 (7가지 요인)
 **Backend**
 
 - Python 3.10+, FastAPI
-- PaddleOCR PP-OCRv3 MobileNetV3 (Fine-tuned)
-- Qwen2.5-VL-7B-Instruct 8bit (~7-9GB VRAM)
-- GPT-4o-mini (LLM 검증, 선택적)
-- OpenAI embeddings + FAISS (RAG)
+- **Vision-LLM**: Qwen2.5-VL-7B-Instruct (4bit, ~4GB VRAM)
+- **OCR**: EasyOCR (Korean + English, GPU)
+- **LLM Verification**: GPT-4o-mini (선택적)
+- **RAG**: OpenAI embeddings + FAISS
+- PostgreSQL
 
 **Frontend**
 
@@ -88,28 +154,44 @@ PaddleOCR 추출 → 신뢰도 평가 (7가지 요인)
 
 **MLOps**
 
-- Docker + Docker Compose
-- PaddlePaddle GPU 2.6.1, CUDA 11.7/11.8
-- WANDB (실험 추적)
+- Docker + Docker Compose (NVIDIA GPU support)
+- Microservices: backend-main (8000), backend-vision (8002)
+
+### Docker 서비스 구조
+
+```markdown
+┌─────────────────────────────────────────────────────────┐
+│                    Docker Compose                       │
+├─────────────┬─────────────┬────────────┬────────────────┤
+│   frontend  │   backend   │  backend   │      db        │
+│   :3000     │   :8000     │  -vision   │   PostgreSQL   │
+│   (React)   │   (FastAPI) │   :8002    │   :5432        │
+│             │             │  (GPU)     │                │
+└─────────────┴──────┬──────┴─────┬──────┴────────────────┘
+                     │            │
+                     └────────────┘
+                   HTTP (receipt_network)
+```
 
 ### 핵심 구현
 
-**1. PaddleOCR Fine-tuning**
+**1. Vision-LLM Field Extraction**
 
-- 통합 데이터셋 구축: CORD 1,000장 + SROIE 626장 + Custom 17장
-- Detection: PP-OCRv3 MobileNetV3, 150 epochs, Early Stopping @ 122
-- Recognition: PP-OCRv5 Korean, 100 epochs, Early Stopping @ 20
-- No Overfitting 달성 (Val-Test diff < 3%)
+- Qwen2.5-VL-7B-Instruct (4bit quantization)
+- Few-shot prompting: 10+ 실제 한국 영수증 예시 + 법령 기반 필드 정의
+- 문서 타입별 프롬프트 분리 (tax_invoice_kr, simple_receipt, multilang, pharmacy_receipt_kr)
+- 처리 시간: 2-3초/이미지 (RTX 3090 기준)
 
-**2. Hybrid OCR System**
+**2. Bbox Matching System**
 
-- 신뢰도 평가 시스템 (7가지 요인): 필수 필드 누락, OCR 블록 수, 검증 실패, 비현실적 금액 등
-- Smart Fallback 로직: confidence ≤ 0.6 시 자동 전환
-- Vision-LLM Few-shot Prompting: 6개 실제 한국 영수증 예시 + 한국 세법 준수
+- EasyOCR bbox 결과와 Vision-LLM 추출값 매칭
+- Fuzzy matching (threshold: 0.7)
+- 필드별 정규화: 금액 (쉼표 제거), 날짜 (YYYY-MM-DD), 사업자번호 (하이픈 제거)
+- Frontend에서 추출 필드 위치 시각화 제공
 
 **3. 이상탐지 시스템**
 
-- 데이터 제약사항: 정상 영수증 1,643개만 존재, 위조 영수증 0개
+- 데이터 제약사항: 정상 영수증만 존재, 위조 영수증 0개
 - ML 기반 불가능 → Rule-based + Zero-shot LLM 접근
 - 2-Stage Validation: Score 계산(Stage 1) + 법적 설명(Stage 2) 분리
 
@@ -117,25 +199,44 @@ PaddleOCR 추출 → 신뢰도 평가 (7가지 요인)
 
 - 법령 크롤링: 법인세법, 소득세법, 부가가치세법 조문
 - 국세청 FAQ 크롤링: 지출증빙, 적격증빙 관련
-- 문서 전처리: JSON 변환, 청킹, 메타데이터 정리
 - FAISS 인덱스 생성 및 Retriever 구현
 
-## 주요 개선 사항 및 문제 해결
+## 성능
 
-**1. OCR Fine-tuning**
+| 구분 | Qwen2.5-VL (4bit) + EasyOCR |
+|------|----------------------------|
+| **Field Extraction Accuracy** | 95%+ |
+| **처리 시간** | 2-3초/이미지 |
+| **비용** | $0 (로컬 GPU) |
+| **VRAM** | ~4-5GB |
+| **Document Types** | 4가지 자동 감지 |
+| **Multi-language** | KR, US, JP, CN |
+| **Bbox Extraction** | EasyOCR |
 
-- Pretrained 모델 대비 Detection Hmean 20% 향상 (50% → 70%)
-- Recognition Accuracy 11% 향상 (80% → 91%)
-- Overfitting 방지 (Validation-Test 차이 3% 미만)
+## 아키텍처 변경 히스토리
 
-**2. Hybrid OCR System**
+### v1.x → v2.0.0 전환 이유
 
-- 속도와 정확도의 균형: 평균 처리 시간 <1초, 정확도 92-95% 목표
-- 비용 효율: PaddleOCR + Qwen2.5-VL 로컬 추론으로 $0 달성
-- Smart Fallback으로 Vision-LLM 사용률 <50% 유지
+**v1.x Hybrid OCR의 한계:**
 
-**3. 데이터 부족 문제 해결**
+- PaddleOCR Fine-tuning에 필요한 데이터 부족 (CORD/SROIE 1,989장 학습)
+- 2-Stage 파이프라인 복잡성 (OCR → Confidence → Fallback)
+- 높은 VRAM 요구 (~7-9GB for 8bit)
+- 한국어 중심, 다국어 지원 제한적
 
-- ML 기반 이상탐지 불가능 (위조 영수증 데이터 0개)
-- Rule-based + Zero-shot LLM으로 대안 제시
-- 도메인 지식 및 법령 기반 검증으로 신뢰성 확보
+**v2.0.0 Vision-LLM Only의 장점:**
+
+- Fine-tuning 불필요 (Few-shot prompting으로 대체)
+- 단일 파이프라인 단순화
+- VRAM 요구사항 감소 (4bit: ~4GB)
+- 다국어 자동 감지 (KR, US, JP, CN)
+- 문서 타입 자동 분류
+
+### Deprecated
+
+v2.0.0에서 제거된 컴포넌트:
+
+- PaddleOCR fine-tuned models
+- OCR training scripts/configs
+- Detection/Recognition evaluation scripts
+- backend-ocr microservice
