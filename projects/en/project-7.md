@@ -2,7 +2,7 @@
 tags: Python, Vision-LLM, Qwen2.5-VL, EasyOCR, RAG, FastAPI, React
 date: 2025
 icon: 🧾
-title: "[WIP] ReceiptVerify: AI-based Receipt Verification & Anomaly Detection System"
+title: "ReceiptVerify: AI-based Receipt Verification & Anomaly Detection System"
 description: An AI-based web application that automatically verifies various types of receipts and detects anomalies/fraud. Specialized in verifying legal proof documents in South Korea, including tax invoices, invoices, and cash receipts, with automated validation of qualified evidence requirements based on the Corporate Tax Act and Value Added Tax Act, and provides legal justification through a RAG system. Provides 95%+ accuracy field extraction using Vision-LLM Only architecture with Qwen2.5-VL (4bit) + EasyOCR, and also automatically detects language and currency to process multi-language receipts from Korea, US, Japan, China, etc.
 ---
 
@@ -10,7 +10,7 @@ description: An AI-based web application that automatically verifies various typ
 
 A system developed to automate receipt processing for sole proprietors and corporations in South Korea, and to detect forged/falsified receipts or receipts that do not meet qualified evidence requirements. Performs fast and accurate field extraction using Qwen2.5-VL (4bit quantization) + EasyOCR-based Vision-LLM Only pipeline, automatically determines whether qualified evidence requirements are violated through law-based validation rules and a RAG system, and presents legal justification.
 
-**Project Period:** November 10, 2025 ~ Present (In Progress)
+**Project Period:** November 10, 2025 ~ December 18, 2025
 
 **v2.0.0 Major Changes:** Transitioned from PaddleOCR Fine-tuning based Hybrid system to Vision-LLM Only architecture. No training required, reduced VRAM requirements (7GB → 4GB), added multi-language support.
 
